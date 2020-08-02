@@ -1,4 +1,4 @@
-# <アプリ名>
+# <ECofsake>
 ECofsake
 
 ## サイト概要
