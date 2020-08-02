@@ -1,27 +1,24 @@
-# README
-#name
+# <アプリ名>
 ECofsake
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## サイト概要
+お酒好きな人がお酒の知識を披露し、販売ができるサイトです。
+基本的に匿名で投稿・コメントができますが、
+会員になるとサイト内で取り扱う珍しいお酒が売買できる。
 
-Things you may want to cover:
+### サイトテーマ
+オーセンティックなバーをイメージした、高級感のあるサイト
 
-* Ruby version
-ruby '2.5.7'
+### テーマを選んだ理由
+お酒の味や雰囲気を楽しむ人を集めるため
 
-* System dependencies
+### ターゲットユーザ
+お酒が好きな落ち着いた人
 
-* Configuration
+### 主な利用シーン
+・お酒仲間を作りたい時
+・珍しいお酒を手に入れたい時
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## 設計書
+### 機能一覧
+<https://docs.google.com/spreadsheets/d/1E1KFWwneQk18MDcBJiwL_Qt9UHGe551Vc5iHeD9HCJQ/edit#gid=0>
