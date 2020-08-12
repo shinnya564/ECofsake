@@ -37,7 +37,7 @@ class DeviseCreateEndUsers < ActiveRecord::Migration[5.2]
       t.string  :kana_family_name,null: false, default: ""
       t.string  :kana_first_name,null: false, default: ""
       t.string  :postal_code,null: false, default: ""
-      t.text    :address,null: false, default: ""
+      t.text    :address,null: false
       t.string  :tel,null: false, default: ""
       t.boolean :delete_status,null: false, default: false
 
