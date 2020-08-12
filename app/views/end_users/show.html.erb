@@ -1,0 +1,57 @@
+
+<div class = "row text-center">
+  <h2 class="page-header">マイページ</h2>
+    <%=link_to("配送先一覧を見る", end_user_addresses_path(current_end_user.id), class: "btn btn-primary") %>
+    <%=link_to("注文履歴一覧を見る", end_user_orders_path(current_end_user.id), class: "btn btn-primary") %><br><br>
+
+
+    <div class= "col-xs-3">
+    </div>
+    <div class= "col-xs-6">
+      <table class="table">
+          <tr>
+            <th class="">氏名：</th>
+            <td class = "">
+              <%= @end_user.family_name %>
+              <%= @end_user.first_name %>
+            </td>
+          </tr>
+          <tr>
+            <th class="">カナ：</th>
+            <td class = "">
+            <%= @end_user.kana_family_name %>
+            <%= @end_user.kana_first_name %>
+            </td>
+          </tr>
+          <tr>
+            <th class="">郵便番号：</th>
+            <td class ="">
+              <%= @end_user.postal_code %>
+            </td class ="">
+          </tr>
+          <tr>
+            <th class="">住所：</th>
+            <td class ="">
+              <%= @end_user.address %>
+            </td>
+          </tr>
+          <tr>
+            <th class="">電話番号：</th>
+            <td class ="">
+              <%= @end_user.tel %>
+            </td>
+          </tr>
+          <tr>
+            <th class="">メールアドレス：</th>
+            <td class = "">
+              <%= @end_user.email %>
+            </td>
+          </tr>
+      </table>
+    </div>
+
+    <div class="col-xs-12">
+      <%=link_to("登録情報編集する", edit_end_user_path, {class: "btn btn-success"}) %>
+      <%=link_to("パスワード変更する", edit_end_user_registration_path ,class: "btn btn-success") %>
+    </div>
+</div>

@@ -1,0 +1,2 @@
+class Charriage < ApplicationRecord
+end

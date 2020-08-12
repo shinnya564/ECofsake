@@ -1,0 +1,95 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+/*bootstrap導入*/
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+
+/*ページ先頭に戻る設定*/
+#back {
+  position: fixed;
+  right: 20px;
+  bottom: 10px;
+  background-color: #FFFFFF;
+}
+
+/*menu設定*/
+.sp-menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: #000;
+  color: #fff;
+  width: 100%;
+  min-height: 20px;
+  z-index: 9;
+}
+
+.sp-menu a{						/*Link_toはアンカーに変わる*/
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.menu{
+	margin-top: 0px;
+	margin-left: 24%;
+	margin-right: 20%;
+	background-color: #000;
+	text-align: center;
+}
+
+.title{
+	margin-top: 40px;
+}
+
+/*header設定*/
+header{
+	color: #FFFFFF;
+	background-color: #000000;
+}
+
+.row{
+	margin: 0px;
+}
+
+.logo{
+  max-width: 100%;
+  height: 400px;
+  background-image:url("main1.jpg");
+  background-position:center;
+  background-size:cover;
+}
+
+
+/*containerの設定*/
+.container {
+	margin-top: 10px;
+}
+
+/*footer設定*/
+footer{
+	max-width: 100%;
+	height: 100px;
+	margin-top: 50px;
+	color: #FFFFFF;
+	background-color: #000000;
+}
+
+.copylight{
+	margin-top: 10px;
+}
