@@ -5,3 +5,11 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+
+Type.create!(name: 'シェイカー', invalid_status: true)
+Product.create!( name: 'バーテンダーセット', type_id: 1, introduction: 'お家でバーテンダーになれます', price_excluding: 3000, out_of_stock: true)
+Product.create!( name: 'バーテンダーセット1', type_id: 1, introduction: 'お家でバーテンダーになれます!!!!!!!!!!!!!!!!!!!!!!!!!!!!!11111111111111111111111', price_excluding: 3000, out_of_stock: false)
+Product.create!( name: 'バーテンダーセット2', type_id: 1, introduction: 'お家でバーテンダーになれます', price_excluding: 3000, out_of_stock: false)
+Product.create!( name: 'バーテンダーセット3', type_id: 1, introduction: 'お家でバーテンダーになれます', price_excluding: 3000, out_of_stock: false)
+Product.create!( name: 'バーテンダーセット4', type_id: 1, introduction: 'お家でバーテンダーになれます', price_excluding: 3000, out_of_stock: false)
