@@ -36,7 +36,7 @@ ActiveRecord::Schema.define(version: 2020_08_09_080908) do
   create_table "bulletin_board_comments", force: :cascade do |t|
     t.integer "bulletin_board_id", null: false
     t.string "name", default: "", null: false
-    t.text "comment", default: "", null: false
+    t.text "comment", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -44,7 +44,7 @@ ActiveRecord::Schema.define(version: 2020_08_09_080908) do
   create_table "bulletin_boards", force: :cascade do |t|
     t.string "title", default: "", null: false
     t.string "name", default: "", null: false
-    t.text "body", default: "", null: false
+    t.text "body", null: false
     t.string "delete_password", default: "", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -54,13 +54,6 @@ ActiveRecord::Schema.define(version: 2020_08_09_080908) do
     t.integer "end_user_id", null: false
     t.integer "product_id", null: false
     t.integer "quantity", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "charriages", force: :cascade do |t|
-    t.string "area", default: "", null: false
-    t.integer "price", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -76,7 +69,7 @@ ActiveRecord::Schema.define(version: 2020_08_09_080908) do
     t.string "kana_family_name", default: "", null: false
     t.string "kana_first_name", default: "", null: false
     t.string "postal_code", default: "", null: false
-    t.text "address", default: "", null: false
+    t.text "address", null: false
     t.string "tel", default: "", null: false
     t.boolean "delete_status", default: false, null: false
     t.datetime "created_at", null: false
@@ -106,7 +99,7 @@ ActiveRecord::Schema.define(version: 2020_08_09_080908) do
 
   create_table "orders", force: :cascade do |t|
     t.integer "end_user_id", null: false
-    t.integer "charriage_id", null: false
+    t.integer "charriage", null: false
     t.string "shipping_name", default: "", null: false
     t.string "postal_code", default: "", null: false
     t.string "shipping_address", default: "", null: false
@@ -129,7 +122,7 @@ ActiveRecord::Schema.define(version: 2020_08_09_080908) do
   create_table "products", force: :cascade do |t|
     t.string "name", default: "", null: false
     t.integer "type_id", null: false
-    t.text "introduction", default: "", null: false
+    t.text "introduction", null: false
     t.integer "price_excluding", null: false
     t.string "image_id", default: ""
     t.boolean "out_of_stock", default: false, null: false

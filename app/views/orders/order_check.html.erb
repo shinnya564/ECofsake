@@ -1,4 +1,5 @@
 
+<div class="col-xs-12">
 	<h1 class="page-header">注文情報確認</h1>
 
 	<%= form_with(model:[@end_user,@order], local: true) do |f| %>
@@ -32,8 +33,8 @@
 				<thead>
 					<tr>
 						<th>送料(税込)</th>
-						<td>¥800</td>
-						<%= f.hidden_field :charriage , :value => "800" %>
+						<td>¥<%= @charriage %></td>
+						<%= f.hidden_field :charriage , :value => @charriage %>
 					</tr>
 					<tr>
 						<th>商品合計(税込)</th>
@@ -41,26 +42,26 @@
 					</tr>
 					<tr>
 						<th>請求金額(税込)</th>
-						<th>¥<%= @total + 800 %></th>
-						<%= f.hidden_field :billing_amount , :value => @total + 800 %>
+						<th>¥<%= @total + @charriage %></th>
+						<%= f.hidden_field :billing_amount , :value => @total + @charriage %>
 					</tr>
 				</thead>
 			</table>
 		</div>
 
+		<div class="col-xs-12">
+			<h2 class="page-header">お支払い方法</h2>
+			<h3><%= @payment %></h3><br>
+			<%= f.hidden_field :payment_flg , :value => @payment_flg %>
+			<h2 class="page-header">お届け先</h2>
+			<h3><%= @postal_code %></h3>
+			<%= f.hidden_field :postal_code , :value => @postal_code %>
+			<h3><%= @shipping_address %></h3>
+			<%= f.hidden_field :shipping_address , :value => @shipping_address %>
+			<h3><%= @full_name %>　</h3>
+			<%= f.hidden_field :shipping_name , :value => @full_name %>
 
-			<div class="col-xs-12">
-				<h2 class="page-header">お支払い方法</h2>
-				<h3><%= @payment %></h3><br>
-				<%= f.hidden_field :payment_flg , :value => @payment_flg %>
-				<h2 class="page-header">お届け先</h2>
-				<h3><%= @postal_code %></h3>
-				<%= f.hidden_field :postal_code , :value => @postal_code %>
-				<h3><%= @shipping_address %></h3>
-				<%= f.hidden_field :shipping_address , :value => @shipping_address %>
-				<h3><%= @full_name %>　</h3>
-				<%= f.hidden_field :shipping_name , :value => @full_name %>
-
-				<h2><%= f.submit "注文内容確定", class: "btn btn-primary btn-lg" %></h2>
-			</div>
-		<% end %>
+			<h2><%= f.submit "注文内容確定", class: "btn btn-primary btn-lg" %></h2>
+		</div>
+	<% end %>
+</div>
