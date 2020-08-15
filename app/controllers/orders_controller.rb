@@ -16,6 +16,7 @@ class OrdersController < ApplicationController
     @order.save
 
     #order_itemレコードの作成
+    @TAX = 1.08    #税込価格計算用、税率8％
     @order_items = @end_user.carts
 
     @order_items.each do |order_item|
@@ -24,7 +25,7 @@ class OrdersController < ApplicationController
       @order_item.order_id = @order.id
       @order_item.product_id = order_item.product_id
       @order_item.name = @product.name
-      @order_item.price = @product.price_excluding
+      @order_item.price = (@product.price_excluding * @TAX).ceil
       @order_item.quantity = order_item.quantity
       @order_item.production_status = 0
       @order_item.save
@@ -71,6 +72,14 @@ class OrdersController < ApplicationController
       @subtotal = @price * cart.quantity
       @total_quantity = @total_quantity + cart.quantity
       @total = @total + @subtotal
+    end
+
+    if @subtotal >= 8000
+      @charriage = 0
+    elsif @subtotal >= 3000
+      @charriage = 500
+    else
+      @charriage = 1000
     end
 
     #支払い方法条件分岐
@@ -162,6 +171,6 @@ class OrdersController < ApplicationController
   private
 
   def order_params
-    params.require(:order).permit(:end_user_id,:shipping_name,:postal_code, :shipping_address, :total_quantity, :charriage, :billing_amount, :payment_flg)
+    params.require(:order).permit(:end_user_id, :shipping_name, :postal_code, :shipping_address, :total_quantity, :charriage, :billing_amount, :payment_flg)
   end
 end

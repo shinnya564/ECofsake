@@ -1,16 +1,16 @@
 
 
-	    <% if @address.errors.any? %>
-	    	<h2><%= pluralize(@address.errors.count, "error") %> prohibited this obj from being saved: </h2>
-	    	<% @address.errors.full_messages.each do |message| %>
-	        	<li><%= message %></li>
-	    	<% end %>
-	    <% end %>
-	    <% @address.errors.full_messages.each do |message| %>
-	      <%= message %>
-	    <% end %>
-
 	    <div class="col-xs-12">
+		    <% if @address.errors.any? %>
+		    	<h2><%= pluralize(@address.errors.count, "error") %> prohibited this obj from being saved: </h2>
+		    	<% @address.errors.full_messages.each do |message| %>
+		        	<li><%= message %></li>
+		    	<% end %>
+		    <% end %>
+		    <% @address.errors.full_messages.each do |message| %>
+		      <%= message %>
+		    <% end %>
+
 	    	<h2>配送先登録/一覧</h2><hr>
 	        <%= form_with model: [@end_user, @address] do |f| %>
 			    <div class="col-xs-3">

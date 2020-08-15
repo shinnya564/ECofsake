@@ -58,13 +58,6 @@ ActiveRecord::Schema.define(version: 2020_08_09_080908) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "charriages", force: :cascade do |t|
-    t.string "area", default: "", null: false
-    t.integer "price", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "end_users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -106,7 +99,7 @@ ActiveRecord::Schema.define(version: 2020_08_09_080908) do
 
   create_table "orders", force: :cascade do |t|
     t.integer "end_user_id", null: false
-    t.integer "charriage_id", null: false
+    t.integer "charriage", null: false
     t.string "shipping_name", default: "", null: false
     t.string "postal_code", default: "", null: false
     t.string "shipping_address", default: "", null: false

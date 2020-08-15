@@ -13,3 +13,4 @@ Product.create!( name: 'バーテンダーセット1', type_id: 1, introduction:
 Product.create!( name: 'バーテンダーセット2', type_id: 1, introduction: 'お家でバーテンダーになれます', price_excluding: 3000, out_of_stock: false)
 Product.create!( name: 'バーテンダーセット3', type_id: 1, introduction: 'お家でバーテンダーになれます', price_excluding: 3000, out_of_stock: false)
 Product.create!( name: 'バーテンダーセット4', type_id: 1, introduction: 'お家でバーテンダーになれます', price_excluding: 3000, out_of_stock: false)
+Product.create!( name: 'バーテンダーセット3', type_id: 1, introduction: 'お家でバーテンダーになれます', price_excluding: 3000, out_of_stock: false)
