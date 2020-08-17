@@ -4,6 +4,8 @@ class ProductsController < ApplicationController
     @TAX = 1.08
     @all_products = Product.all
 
+    @types = Type.where(invalid_status: true)
+
     #管理者をアクセスさせない
     if admin_signed_in?
         redirect_to destroy_admin_session_path

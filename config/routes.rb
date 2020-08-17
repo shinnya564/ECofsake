@@ -9,6 +9,7 @@ Rails.application.routes.draw do
 
   root 'tops#top'
   get 'tops/introduction'
+  get 'search' => 'search#search'
 
   resources :bulletin_boards, only: [:index,:show,:create] do
     resources :bulletin_board_comments, only: [:create]
@@ -16,6 +17,7 @@ Rails.application.routes.draw do
 
   resources :products, only: [:index,:show] do
     resources :product_comments, only: [:create]
+    resource :favorites, only: [:create, :destroy]
   end
 
   resources :end_users, only: [:show,:edit,:update] do
@@ -34,9 +36,10 @@ Rails.application.routes.draw do
   end
 
   namespace :admins do
-    resources :charriages, only: [:index, :edit]
     resources :end_users, only: [:index,:show,:edit] do
-      resources :orders, only: [:index,:show]
+      resources :orders, only: [:index,:show] do
+        resources :order_items, only: [:update]
+      end
     end
     resources :products, only:[:index,:show] do
       resources :types, only:[:index,:edit]

@@ -14,7 +14,7 @@ class EndUsersController < ApplicationController
   def update
     @end_user = current_end_user
     if @end_user.update(end_user_params)
-      redirect_to @end_user, notice: "会員情報を更新しました!"
+      redirect_to @end_user, notice: "会員情報を更新しました"
     else #if文でエラー発生時と正常時のリンク先を枝分かれにしている。
       render "show"
     end

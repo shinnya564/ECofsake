@@ -10,7 +10,7 @@ class AddressesController < ApplicationController
   	@address = Address.new(address_params) #addressモデルのテーブルを使用しているのでaddressコントローラで保存
     @address.end_user_id = current_end_user.id
     if @address.save #入力されたデータをdbに保存する。
-      redirect_to request.referer, notice: "successfully created address!"#保存された場合の移動先を指定。
+      redirect_to request.referer, notice: "配送先を追加しました"#保存された場合の移動先を指定。
     else
       @address.errors.full_messages.each do |msg|
         p msg

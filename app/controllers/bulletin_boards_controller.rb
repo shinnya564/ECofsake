@@ -8,7 +8,7 @@ class BulletinBoardsController < ApplicationController
   def create
     @board = BulletinBoard.new(bulletin_board_params)
     if @board.save
-      redirect_to bulletin_boards_path, notice: "successfully created book!"#保存された場合の移動先を指定。
+      redirect_to bulletin_boards_path, notice: "新しく投稿されました"#保存された場合の移動先を指定。
     else
       @boards = BulletinBoard.all
       @board  = BulletinBoard.new

@@ -34,9 +34,9 @@ ActiveRecord::Schema.define(version: 2020_08_09_080908) do
   end
 
   create_table "bulletin_board_comments", force: :cascade do |t|
-    t.integer "bulletin_board_id", null: false
+    t.integer "bulletin_board_id"
     t.string "name", default: "", null: false
-    t.text "comment", null: false
+    t.text "comment"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -81,7 +81,6 @@ ActiveRecord::Schema.define(version: 2020_08_09_080908) do
   create_table "favorites", force: :cascade do |t|
     t.integer "end_user_id", null: false
     t.integer "product_id", null: false
-    t.boolean "good_flag", default: false, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -99,11 +98,11 @@ ActiveRecord::Schema.define(version: 2020_08_09_080908) do
 
   create_table "orders", force: :cascade do |t|
     t.integer "end_user_id", null: false
-    t.integer "charriage", null: false
     t.string "shipping_name", default: "", null: false
     t.string "postal_code", default: "", null: false
     t.string "shipping_address", default: "", null: false
     t.integer "total_quantity", null: false
+    t.integer "charriage", null: false
     t.integer "billing_amount", null: false
     t.integer "status_flg", null: false
     t.integer "payment_flg", null: false
@@ -120,8 +119,8 @@ ActiveRecord::Schema.define(version: 2020_08_09_080908) do
   end
 
   create_table "products", force: :cascade do |t|
-    t.string "name", default: "", null: false
     t.integer "type_id", null: false
+    t.string "name", default: "", null: false
     t.text "introduction", null: false
     t.integer "price_excluding", null: false
     t.string "image_id", default: ""

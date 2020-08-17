@@ -5,7 +5,7 @@ class ProductCommentsController < ApplicationController
 		@product = Product.find(params[:product_id])
 		@comment.product_id = @product.id
 	    if @comment.save
-	    	redirect_to @product, notice: "successfully created book!"#保存された場合の移動先を指定。
+	    	redirect_to @product, notice: "新しく投稿しました"#保存された場合の移動先を指定。
 	    else
 	   		redirect_to @product, notice: "コメントを入力してください"
 	    end
