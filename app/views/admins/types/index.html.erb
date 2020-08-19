@@ -1,0 +1,46 @@
+<div class="col-xs-12">
+	<h2 class="page-header">ジャンル一覧・追加</h2>
+	<%= form_for @type, url: admins_types_path do |f| %>
+		<ul class="list-inline">
+			<li>
+				<h4>ジャンル</h4>
+			</li>
+			<li><%= f.text_field :name, class: "form-control",placeholder: "ジャンルを入力" %></li>
+			<li>
+				<%= f.radio_button :invalid_status, true ,checked: true%>
+				<%= f.label :invalid_status, "有効", value: true %>
+				<%= f.radio_button :invalid_status, false %>
+				<%= f.label :invalid_status, '無効', value: false %>
+			</li>
+			<li><%= f.submit '追加', class: "btn btn-primary"  %></li>
+		</ul>
+	<% end %>
+	<div class="text-center"><%= paginate @types %></div>
+		<table class="table">
+			<thead>
+				<tr>
+					<th class="col-lg-4 col text-center">ジャンル</th>
+					<th class="col-lg-4 col text-center">状態</th>
+					<th class="col-lg-4 col text-center"></th>
+				</tr>
+			</thead>
+
+			<% @types.each do |type| %>
+				<tbody>
+					<tr class="text-center">
+						<td><%= type.name %></td>
+						<td><% if type.invalid_status == false %>
+								<%= "無効" %>
+							<% else %>
+								<%= "有効" %>
+							<% end %>
+						</td>
+						<td>
+							<%= link_to "編集する", edit_admins_type_path(type.id), class: "btn btn-success" %>
+						</td>
+					</tr>
+				</tbody>
+			<% end %>
+		</table>
+	</div>
+</div>

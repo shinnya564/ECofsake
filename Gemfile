@@ -60,3 +60,34 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
+#devise
+gem 'devise'
+
+#画像用のgem
+gem "refile", require: "refile/rails", github: 'manfe/refile'
+gem "refile-mini_magick"
+
+#bootstrap
+gem 'bootstrap-sass', '~> 3.3.6'
+gem 'jquery-rails'
+
+#ページネイト
+gem 'kaminari','~>1.2.1'
+
+#pry-byebug
+gem 'pry-byebug'
+
+#Rubocop-airbnb
+gem 'rubocop-airbnb'
+
+#dotenv-rails 環境変数
+gem 'dotenv-rails'
+
+#クレジットカード支払用
+gem 'payjp'
+
+#mysql2
+group :production do
+  gem 'mysql2'
+end
