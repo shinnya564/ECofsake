@@ -31,6 +31,8 @@ class EndUsersController < ApplicationController
     redirect_to destroy_end_user_session_path
   end
 
+  private
+
   def end_user_params
     params.require(:end_user).permit(:family_name,:first_name, :kana_family_name, :kana_first_name, :email, :postal_code, :address, :tel)
   end

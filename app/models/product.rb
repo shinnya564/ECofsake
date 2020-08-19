@@ -17,12 +17,8 @@ class Product < ApplicationRecord
   	end
 
   	#商品検索
-	def Product.search(search, model)
-	    if model == "1"
-	        Product.where(['name LIKE ?', "%#{search}%"])
-	    else
-	        Product.all
-	    end
+	def Product.search(search)
+	    Product.where(['name LIKE ?', "%#{search}%"])
 	end
 
 end
