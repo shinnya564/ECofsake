@@ -1,5 +1,7 @@
 class OrdersController < ApplicationController
 
+ before_action :authenticate_end_user!
+
   def index
     @end_user = current_end_user
     @orders = @end_user.orders

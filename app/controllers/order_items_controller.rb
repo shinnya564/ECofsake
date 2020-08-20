@@ -1,5 +1,7 @@
 class OrderItemsController < ApplicationController
 
+ before_action :authenticate_end_user!
+
   def create
   	@order_item = new(order_item_params)
   	@order_item.production_status = 0
