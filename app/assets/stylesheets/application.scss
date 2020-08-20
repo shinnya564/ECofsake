@@ -26,6 +26,15 @@
   background-color: #FFFFFF;
 }
 
+/*スライド画像設定*/
+.main1{
+  background-image: image-url("main1.jpg")
+}
+
+.main2{
+  background-image: image-url("main2.jpg")
+}
+
 /*menu設定*/
 .sp-menu {
   position: fixed;
