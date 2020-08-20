@@ -1,24 +1,35 @@
-# README
+# サイト名
+ECofsake
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## サイト概要
+お酒好きな人がお酒の知識を披露できるサイトです。
 
-Things you may want to cover:
+昨今、対面型の店舗経営が難しい印象を持ったため、
+ネット通販が簡単に始められたらいいなと思い、ECサイトを作成しました。
 
-* Ruby version
+基本機能は、カクテルのレシピの公開と匿名での記事の投稿・コメントです。
 
-* System dependencies
+会員になるとサイト内でお酒を作る際に役に立つ道具（輸入品は除く）が購入できます。
 
-* Configuration
+支払い方法は、クレジットカード支払い、代引きの２択。
+クレジットカード情報は直接DBに保存せず、
+jsで暗号化してdbに保存します。
+支払い情報に関しては、Pay.jpのAPIで管理します。
+※なお、今回はPF用に作成したため、クレジットカード情報は入力できないよう設定する
 
-* Database creation
+### サイトテーマ
+オーセンティックなバーをイメージした、高級感のあるサイト
 
-* Database initialization
+### テーマを選んだ理由
+お酒の味や雰囲気を楽しむ人を集めるため
 
-* How to run the test suite
+### ターゲットユーザ
+お酒が好きな落ち着いた人
 
-* Services (job queues, cache servers, search engines, etc.)
+### 主な利用シーン
+・お酒仲間を作りたい時
+・お酒を自分で作ってみたい時
 
-* Deployment instructions
-
-* ...
+## 設計書
+### 機能一覧
+<https://docs.google.com/spreadsheets/d/1E1KFWwneQk18MDcBJiwL_Qt9UHGe551Vc5iHeD9HCJQ/edit#gid=0>
