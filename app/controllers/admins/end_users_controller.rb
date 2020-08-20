@@ -1,4 +1,5 @@
 class Admins::EndUsersController < ApplicationController
+
   before_action :authenticate_admins!
 
   layout 'admins'

@@ -1,7 +1,7 @@
 class SearchController < ApplicationController
 
 	def search_products
-		@search = Product.search(params[:search])
+	  	@search = Product.search(params[:search])
 	    @types = Type.where(invalid_status: true)
 
 	    @TAX = 1.08
@@ -22,6 +22,7 @@ class SearchController < ApplicationController
 	    #ジャンル抽出
 	    types = Type.where(invalid_status: true)
 	    per = 8
-	    @products = @all_products.where(out_of_stock: false, type_id: types.pluck(:id)).page(params[:page]).per(per)
+      types = Type.where(invalid_status: true)
+	    @searches = @search.where(out_of_stock: false, type_id: types.pluck(:id)).page(params[:page]).per(per)
 	end
 end
