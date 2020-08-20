@@ -22,7 +22,6 @@ class SearchController < ApplicationController
 	    #ジャンル抽出
 	    types = Type.where(invalid_status: true)
 	    per = 8
-      types = Type.where(invalid_status: true)
-	    @searches = @search.where(out_of_stock: false, type_id: types.pluck(:id)).page(params[:page]).per(per)
+	    @products = @all_products.where(out_of_stock: false, type_id: types.pluck(:id)).page(params[:page]).per(per)
 	end
 end
