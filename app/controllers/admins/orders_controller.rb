@@ -1,5 +1,4 @@
 class Admins::OrdersController < ApplicationController
-
   before_action :authenticate_admins!
 
   layout 'admins'

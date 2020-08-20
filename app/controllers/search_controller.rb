@@ -7,20 +7,13 @@ class SearchController < ApplicationController
 	    @TAX = 1.08
 	    @loop = 0
 
-	    @search.each do |product|
-	    	if product.out_of_stock == false
-	        	if product.type.invalid_status == true
-	          		@number = @number + 1
-	        	else
-	        	end
-	      	else
-	      	end
-		end
 	    per = 8
-      @products = @all_products.where(out_of_stock: false, type_id: @types.pluck(:id)).page(params[:page]).per(per)
+	    @searches = @search.where(out_of_stock: false, type_id: @types.pluck(:id)).page(params[:page]).per(per)
 	end
 
 	def search_types
+	    @types = Type.where(invalid_status: true)
+
 	    @TAX = 1.08
 	    @all_products = Product.where(type_id: params[:format])
 	    @loop = 0

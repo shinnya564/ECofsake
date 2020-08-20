@@ -1,5 +1,4 @@
 class Admins::OrderItemsController < ApplicationController
-
   before_action :authenticate_admins!
 
     def update
