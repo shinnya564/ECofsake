@@ -1,0 +1,64 @@
+<div class="col-xs-12">
+	<h2 class="page-header">商品編集画面</h2>
+
+	<%= form_for @product, url:admins_product_path(@product.id) do |f| %>
+		<div class="col-xs-6">
+			<div class="col-xs-12">
+				<div class="col-xs-4">
+					<%= f.label :商品名 %>
+				</div>
+				<div class="col-xs-8">
+					<%= f.text_field :name, class: 'form-control' %><br><br>
+				</div>
+			</div>
+
+			<div class="col-xs-12">
+				<div class="col-xs-4">
+					<%= f.label :商品説明 %>
+				</div>
+				<div class="col-xs-8 filed">
+					<%= f.text_area :introduction, class: 'form-control' %><br><br>
+				</div>
+			</div>
+
+			<div class="col-xs-12">
+				<div class="col-xs-4">
+					<%= f.label :種類 %>
+				</div>
+				<div class="col-xs-8 filed">
+					<%= f.collection_select :type_id, Type.all, :id, :name, class: 'form-control' %><br><br>
+				</div>
+			</div>
+
+			<div class="col-xs-12">
+				<div class="col-xs-4">
+					<%= f.label :税抜き価格 %>
+				</div>
+				<div class="col-xs-8">
+					<%= f.text_field :price_excluding, class: 'form-control' %><br><br>
+				</div>
+			</div>
+
+			<div class="col-xs-12">
+				<div class="col-xs-4">
+					<%= f.label :販売ステータス %>
+				</div>
+				<div class="col-xs-8">
+					<%= f.radio_button :out_of_stock, false %>
+					<%= f.label :out_of_stock, '販売中', value: false %>
+					<%= f.radio_button :out_of_stock, true %>
+					<%= f.label :out_of_stock, '販売中止', value: true %><br><br>
+				</div>
+			</div>
+		</div>
+
+		<div class="col-xs-6">
+			<%= attachment_image_tag(@product, :image, size: "400x400", fallback: "no_image.jpg", id:"img1")%>
+			<br><br>
+			<%= f.attachment_field :image, id:"myfile" %>
+		</div>
+		<div class="col-xs-12">
+			<%= f.submit "変更を保存", class: "btn btn-primary" %>
+		</div>
+	<% end %>
+</div>

@@ -55,12 +55,14 @@
     </div>
     <div class="wrapper">
       <footer>
-        <div class= "col-xs-12 copylight">
-          <div class= "col-xs-6" align="left">
-            お問い合わせ
-          </div>
-          <div class= "col-xs-6" align="right">
-            &copy; ECofsake
+        <div class= 'container'>
+          <div class= "col-xs-12 copylight">
+            <div class= "col-xs-6" align="left">
+              <%= link_to("お問い合わせ", inquiries_path, class: "glyphicon glyphicon-envelope inquiry") %>
+            </div>
+            <div class= "col-xs-6" align="right">
+              &copy; ECofsake
+            </div>
           </div>
         </div>
       </footer>

@@ -35,7 +35,6 @@
   color: #fff;
   width: 100%;
   min-height: 20px;
-  z-index: 9;
 }
 
 .sp-menu a{						/*Link_toはアンカーに変わる*/
@@ -68,8 +67,6 @@ header{
 .logo{
   max-width: 100%;
   height: 600px;
-  background-image: image-url("main1.jpg");
-  background-image: image-url("main2.jpg");
   background-position: center;
   background-size: cover;
 }
@@ -94,6 +91,12 @@ footer{
 	background-color: #000000;
   margin-top: 50px;
   bottom: 0; /*下に固定*/
+}
+
+.inquiry{
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
 }
 
 .copylight{

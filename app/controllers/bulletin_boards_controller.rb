@@ -1,7 +1,7 @@
 class BulletinBoardsController < ApplicationController
 
   def index
-  	@boards = BulletinBoard.all
+  	@boards = BulletinBoard.all.order(id: "DESC")
   	@board  = BulletinBoard.new
   end
 

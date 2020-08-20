@@ -1,5 +1,7 @@
 class EndUsersController < ApplicationController
 
+ before_action :authenticate_end_user!
+
   def show
     @end_user = EndUser.find(params[:id])
     if @end_user.id != current_end_user.id
@@ -30,6 +32,8 @@ class EndUsersController < ApplicationController
     @end_user.save
     redirect_to destroy_end_user_session_path
   end
+
+  private
 
   def end_user_params
     params.require(:end_user).permit(:family_name,:first_name, :kana_family_name, :kana_first_name, :email, :postal_code, :address, :tel)
