@@ -1,5 +1,7 @@
 class CartsController < ApplicationController
 
+ before_action :authenticate_end_user!
+
   def index
     @TAX = 1.08    #税込価格計算用、税率8％
     @price = 0     #商品税込価格用

@@ -1,5 +1,7 @@
 class FavoritesController < ApplicationController
 
+ before_action :authenticate_end_user!
+
 	def create
     	product = Product.find(params[:product_id])
     	end_user = current_end_user

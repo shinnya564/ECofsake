@@ -16,6 +16,7 @@
 //= require_tree .
 //= require jquery
 
+
 //map 表示
 	let map
 	let geocoder
@@ -34,18 +35,19 @@
 		});
 	}
 
+
 //top スライドショー
-	$(document).ready(function() {
+	$(document).on('turbolinks:load', function() {
 		// オプションを指定してSkipprの実行
 		$(".logo").skippr({
 		    // スライドショーの変化（"fade" or "slide"）
 		    transition : 'fade',
 		    // 変化にかかる時間（ミリ秒）
-		    speed : 1000,
+		    speed : 3000,
 		    // easingの種類
 		    easing : 'easeOutQuart',
 		    // ナビゲーションの形（"block" or "bubble"）
-		    navType : 'block',
+		    navType : 'bubble',
 		    // 子要素の種類（"div" or "img"）
 		    childrenElementType : 'div',
 		    // ナビゲーション矢印の表示（trueで表示）
@@ -58,5 +60,32 @@
 		    keyboardOnAlways : true,
 		    // 1枚目のスライド表示時に戻る矢印を表示するかどうか [false]:矢印を隠さない [true]:矢印を隠す
 		    hidePrevious : false
+		});
+	});
+
+//画像のプレビュー機能
+	$('#myfile').on('change', function (e) {
+		var file = e.target.files[0];
+	    var reader = new FileReader();
+	    reader.onload = function (e) {
+	        $("#img1").attr('src', e.target.result);
+	    }
+	    reader.readAsDataURL(e.target.files[file]);
+	});
+
+	$(function () {
+		$('#myfile').change(function (e) {
+			//ファイルオブジェクトを取得する
+			var file = e.target.files[0];
+			var reader = new FileReader();
+
+			//アップロードした画像を設定する
+			reader.onload = (function (file) {
+				return function (e) {
+					$("#img1").attr("src", e.target.result);
+					$("#img1").attr("title", file.name);
+				};
+			})(file);
+			reader.readAsDataURL(file);
 		});
 	});

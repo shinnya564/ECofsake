@@ -6,11 +6,6 @@ class ProductsController < ApplicationController
 
     @types = Type.where(invalid_status: true)
 
-    #管理者をアクセスさせない
-    if admin_signed_in?
-        redirect_to destroy_admin_session_path
-    end
-
     #退会ユーザーをアクセスさせない
     if end_user_signed_in?
       if current_end_user.delete_status == true
@@ -31,7 +26,8 @@ class ProductsController < ApplicationController
       else
       end
     per = 8
-    @products = Product.where(out_of_stock: false).page(params[:page]).per(per)
+    types = Type.where(invalid_status: true)
+    @products = Product.where(out_of_stock: false, type_id: types.pluck(:id)).page(params[:page]).per(per).order(id: "DESC")
     end
   end
 

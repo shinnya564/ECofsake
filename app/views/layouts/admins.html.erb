@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>ECofsake</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <header>
+      <div class= "col-xs-12 sp-menu">
+        <div class= 'container'>
+          <div class= "col-xs-3 title">
+            ECofsake
+          </div>
+          <div class= "col-xs-9">
+            <ul class="nav navbar-nav menu">
+                <li><%= link_to(" 注文一覧", admins_orders_path, { method: :get ,class: "glyphicon glyphicon-log-out"}) %></li>
+                <li><%= link_to(" 登録者一覧", admins_end_users_path, { method: :get ,class: "glyphicon glyphicon-log-out"}) %></li>
+                <li><%= link_to(" 商品種類一覧", admins_types_path, { method: :get ,class: "glyphicon glyphicon-log-out"}) %></li>
+                <li><%= link_to(" 商品一覧", admins_products_path, { method: :get ,class: "glyphicon glyphicon-log-out"}) %></li>
+                <li><%= link_to(" ログアウト", destroy_admin_session_path, { method: :get ,class: "glyphicon glyphicon-log-out"}) %></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <div class= 'container main'>
+      <div class= "col-xs-12 welcom">
+        <ul class="nav">
+          <li><%= notice %></li>
+        </ul>
+      </div>
+      <%= yield %>
+    </div>
+    <div class="wrapper">
+      <footer>
+        <div class= "col-xs-12 copylight">
+          <div class= "col-xs-6" align="left">
+            お問い合わせ
+          </div>
+          <div class= "col-xs-6" align="right">
+            &copy; ECofsake
+          </div>
+        </div>
+      </footer>
+    </div>
+  </body>
+  <span id="back">
+    <a href="#">
+      <img src="/assets/arrow.png" width="50" height="50" align="right" >
+    </a>
+  </span>
+</html>

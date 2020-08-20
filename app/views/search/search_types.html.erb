@@ -1,0 +1,70 @@
+
+
+    <div class="col-xs-12">
+        <div class="col-xs-3">
+            <h3>商品名検索</h3><hr>
+            <%= form_tag(search_products_path, :method => 'get' ) do %>
+                <%= text_field_tag :search %></br><br>
+                <%= submit_tag 'Search' %>
+            <% end %>
+            <h3>種類検索</h3><hr>
+            <% @types.each do |type| %>
+                <li><%= link_to type.name , search_types_path(type), method: :get %></li><bar>
+            <% end %>
+        </div>
+
+        <div class="col-xs-9">
+            <h2>検索結果</h2>
+
+            <table class="table table-striped table-inverse">
+                <tbody align="left">
+                    <tr>
+                        <% @products.each do |product| %>
+                            <% if product.out_of_stock == false %>
+                                <% if product.type.invalid_status == true %>
+                                    <% if @loop == 3 %>
+                                            <td>
+                                                <%= link_to(product) do %>
+                                                    <%= attachment_image_tag product, :image, fallback: "no_image.jpg",size: "200x200" %><br>
+                                                <% end %>
+                                                <h4><%= link_to product.name, product_path(product.id) %></h4>
+                                                <h4>¥<%= (product.price_excluding * @TAX).ceil %>(税込)</h4>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                        <% @loop = 0 %>
+                                <% else %>
+                                    <td>
+                                        <%= link_to(product) do %>
+
+                                            <%= attachment_image_tag product, :image, fallback: "no_image.jpg",size: "200x200" %><br>
+
+                                        <% end %>
+                                        <h4><%= link_to product.name, product_path(product.id) %></h4>
+                                        <h4>¥<%= (product.price_excluding * @TAX).ceil %>(税込)</h4>
+                                    </td>
+                                    <% @loop += 1 %>
+                                <% end %>
+                                <% else %>
+                                <% end %>
+                            <% else %>
+
+                                <td>
+                                    <%= link_to(product) do %>
+
+                                        <%= attachment_image_tag product, :image, fallback: "no_image.jpg",size: "200x200" %><br>
+
+                                    <% end %>
+                                    <%= link_to product.name, product_path(product.id) %><br>
+                                    ¥<%= (product.price_excluding * @TAX).ceil %>円
+                                </td>
+                                <% @loop += 1 %>
+
+                            <% end %>
+                        <% end %>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+    </div>
