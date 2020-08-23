@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  end_user_id: 1
+  customer_id: MyString
+  card_id: MyString
+
+two:
+  end_user_id: 1
+  customer_id: MyString
+  card_id: MyString

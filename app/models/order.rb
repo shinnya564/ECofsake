@@ -4,7 +4,7 @@ class Order < ApplicationRecord
 
 	has_many :order_items
 
-  enum status_flg: { "入金待ち": 0, "入金確認": 1}
-  enum payment_flg: { "銀行振込": 0, "クレジットカード": 1}
+  enum status_flg: { "未発送": 0,"入金待ち": 1, "入金確認": 2}
+  enum payment_flg: { "クレジットカード": 0, "代引支払": 1}
 
 end

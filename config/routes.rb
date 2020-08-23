@@ -34,6 +34,8 @@ Rails.application.routes.draw do
     patch '/withdrawal' => 'end_users#withdrawal_update'
     put '/withdrawal' => 'end_users#withdrawal_update'
     resources :addresses, only: [:index, :edit, :create, :update, :destroy]
+    resources :cards, only: [:new, :index, :create, :destroy]
+    get '/card_check' => 'cards#card_check'
     resources :carts, only: [:index, :create, :destroy, :update]
     delete '/carts' => 'carts#all_destroy'
     get '/address_check' => 'orders#address_check'

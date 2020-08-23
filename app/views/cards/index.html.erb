@@ -1,0 +1,38 @@
+
+	<script src="https://js.pay.jp/v2/pay.js"></script>
+
+	<div class="col-xs-12">
+		<h3>クレジットカード一覧</h3>
+		<%=link_to("新規クレジットカード登録", new_end_user_card_path(current_end_user.id), class: "btn btn-primary") %><br><br>
+	</div>
+
+		<div class="text-center">
+			<div class="col-xs-12">
+			    <table class="table table-striped table-inverse">
+			    	<thead>
+				        <tr>
+				          <th class="text-center">カード番号</th>
+				          <th class="text-center">有効期限</th>
+				          <th class="text-center"></th>
+				        </tr>
+				      </thead>
+				      <tbody>
+				        <% @cards.each do |card| %>
+				          <tr>
+				            <td>
+				            	<%= "**** **** **** " + @default_card_information.last4 %>
+				            </td>
+				            <td>
+				            	<% exp_month = @default_card_information.exp_month.to_s %>
+								<% exp_year = @default_card_information.exp_year.to_s.slice(2,3) %>
+								<%= exp_month + " / " + exp_year %>
+				            </td>
+				            <td>
+				              <%= link_to("削除", end_user_card_path(current_end_user, card), method: :delete, class: "btn btn-danger pull-right") %>
+				            </td>
+				          </tr>
+				        <% end %>
+				      </tbody>
+			    </table>
+			</div>
+		</div>
