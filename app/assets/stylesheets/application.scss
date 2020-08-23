@@ -44,10 +44,12 @@
   position: fixed;
   top: 0;
   left: 0;
+  padding: 10px 20px;
   background: #000;
   color: #fff;
   width: 100%;
   min-height: 20px;
+  z-index: 1000;
 }
 
 .sp-menu a{						/*Link_toはアンカーに変わる*/
@@ -85,7 +87,7 @@ header{
 }
 
 .welcom{
-    margin-top: 60px;
+    margin-top: 80px;
 }
 
 .main{

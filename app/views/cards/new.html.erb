@@ -1,0 +1,58 @@
+
+	<script src="https://js.pay.jp/v2/pay.js"></script>
+
+	<div class="col-xs-12">
+	    <% if @card.errors.any? %>
+	    	<h2><%= pluralize(@card.errors.count, "error") %> prohibited this obj from being saved: </h2>
+	    	<% @card.errors.full_messages.each do |message| %>
+	        	<li><%= message %></li>
+	    	<% end %>
+	    <% end %>
+	    <% @card.errors.full_messages.each do |message| %>
+	      <%= message %>
+	    <% end %>
+
+		<h2>新規クレジットカード</h2><hr>
+
+	    <%= form_for( @card, url: { controller: 'cards', action: 'card_check'}, html:{method:'get'} ) do |f| %>
+		    <div class="col-xs-4">
+		    	<%= f.label "カード番号" %>
+		 	</div>
+		    <div class="col-xs-8 field">
+		   	  	<%= text_field_tag :card_number, "", class: "number form-control", placeholder: "半角数字のみ" ,maxlength: "16", type: "text", id: "card_number" %>
+		    </div>
+		    <div class="col-xs-4">
+		    	<div class="col-xs-6">
+		    		<%= f.label "有効期限" %>
+		    	</div>
+		    	<div calss="col-xs-6">
+		    		月/
+		    	</div>
+		    </div>
+		    <div class="col-xs-8 field">
+				<%= select_tag :card_exp_month, options_for_select(["01","02","03","04","05","06","07","08","09","10","11","12"]), class: 'exp_year form-control' %>
+		    </div>
+		    <div class="col-xs-4">
+		    	<div class="col-xs-6">
+		    		<%= f.label "有効期限" %>
+		    	</div>
+		    	<div calss="col-xs-6">
+		    		年/
+		    	</div>
+		    </div>
+		    <div class="col-xs-8 field">
+		    	<%= select_tag :card_exp_year, options_for_select([20,21,22,23,24,25,26,27,28,29,30]), class: 'exp_year form-control' %>
+		    </div>
+		    <div class="col-xs-4">
+		    	<%= f.label "セキュリティコード" %>
+		    </div>
+		    <div class="col-xs-8 field">
+		    	<%= text_field_tag :"card_cvc", "", class:"cvc form-control", placeholder: "カード背面3~4桁の番号", maxlength: "4", id: "cvc" %>
+		    </div>
+		    <div class="col-xs-4">
+		    </div>
+		    <div class="col-xs-8 field">
+				<%= f.submit "カード情報を確認", class: "btn btn-primary" %>
+		    </div>
+	    <%end %>
+	</div>

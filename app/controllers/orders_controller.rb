@@ -2,6 +2,8 @@ class OrdersController < ApplicationController
 
  before_action :authenticate_end_user!
 
+  require "payjp"
+
   def index
     @end_user = current_end_user
     @orders = @end_user.orders
@@ -31,6 +33,21 @@ class OrdersController < ApplicationController
       @order_item.quantity = order_item.quantity
       @order_item.production_status = 0
       @order_item.save
+
+      #クレジットカード支払い料金請求
+      if @order.payment_flg == "クレジットカード"
+        # 購入した際の情報を元に引っ張ってくる
+        @card = Card.find(@order.card_id)
+      binding.pry
+        # テーブル紐付けてるのでログインユーザーのクレジットカードを引っ張ってくる
+        Payjp.api_key = ENV['PAYJP_PRIVATE_KEY']
+        Payjp::Charge.create(
+          amount: @order.billing_amount, #支払金額
+          customer: @card.customer_id, #顧客ID
+          currency: 'jpy', #日本円
+          )
+      else
+      end
     end
 
     #cartの中身を空にする
@@ -55,6 +72,8 @@ class OrdersController < ApplicationController
     @order = Order.new
     @end_user = current_end_user
     @addresses = @end_user.addresses
+    @cards = current_end_user.cards
+
   end
 
   def order_check
@@ -83,11 +102,43 @@ class OrdersController < ApplicationController
     else
       @charriage = 1000
     end
-
     #支払い方法条件分岐
     @payment_flg = params[:order][:payment_flg]
     if @payment_flg == "0"
       @payment = "クレジットカード"
+      @card_selection = params[:card_selection]
+      if @card_selection == "0"
+        card = params[:card][:card_id]
+        @card = Card.find(card)
+        @customer_id = @card.customer_id
+        @payment_card = @card.id
+        @card_id = @card.card_id
+        Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
+        customer = Payjp::Customer.retrieve(@customer_id)
+        @default_card_information = customer.cards.retrieve(@card_id)
+        @secret = "**** **** **** " + "#{@default_card_information.last4}"
+        if @card == ""
+          redirect_to request.referer, notice: 'クレジットカードを選択してください'
+        else
+        end
+      else
+        Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
+        customer = Payjp::Customer.create(
+          card: params['payjpToken'],
+          metadata: {end_user_id: current_end_user.id}
+        )
+        @card = Card.new
+        @card.end_user_id = current_end_user.id
+        @card.customer_id = customer.id
+        @card.card_id = customer.default_card
+        #dbに保存
+        if @card.save
+          customer = Payjp::Customer.retrieve(@card.customer_id)
+          @default_card_information = customer.cards.retrieve(@card.card_id)
+        else
+          redirect_to request.referer, notice: 'クレジットカード登録に失敗しました'
+        end
+      end
       #お届け先条件分岐
       @address_selection = params[:address_selection]
       @address_id = params[:address][:address_id]
@@ -173,6 +224,6 @@ class OrdersController < ApplicationController
   private
 
   def order_params
-    params.require(:order).permit(:end_user_id, :shipping_name, :postal_code, :shipping_address, :total_quantity, :charriage, :billing_amount, :payment_flg)
+    params.require(:order).permit(:end_user_id, :card_id, :shipping_name, :postal_code, :shipping_address, :total_quantity, :charriage, :billing_amount, :payment_flg)
   end
 end

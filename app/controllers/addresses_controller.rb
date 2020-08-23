@@ -16,7 +16,7 @@ class AddressesController < ApplicationController
     else
       @address.errors.full_messages.each do |msg|
         p msg
-      end
+    end
       @end_user = current_end_user
       @addresses = @end_user.addresses
       render :index
