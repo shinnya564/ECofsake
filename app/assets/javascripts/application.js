@@ -64,6 +64,7 @@
 
 //画像のプレビュー機能
 	$('#myfile').on('change', function (e) {
+		console.log("test")   //表示test用
 		var file = e.target.files[0];
 	    var reader = new FileReader();
 	    reader.onload = function (e) {
