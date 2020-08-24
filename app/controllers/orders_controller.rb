@@ -38,7 +38,6 @@ class OrdersController < ApplicationController
       if @order.payment_flg == "クレジットカード"
         # 購入した際の情報を元に引っ張ってくる
         @card = Card.find(@order.card_id)
-      binding.pry
         # テーブル紐付けてるのでログインユーザーのクレジットカードを引っ張ってくる
         Payjp.api_key = ENV['PAYJP_PRIVATE_KEY']
         Payjp::Charge.create(
