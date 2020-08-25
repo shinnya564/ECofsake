@@ -95,8 +95,8 @@
     </div>
   </div>
   <% end %>
+  <% if @minimum_password_length %>
+    パスワードは<%= @minimum_password_length %> 文字以上
+  <% end %>
+  <%= render "endusers/shared/links" %>
 </div>
-<% if @minimum_password_length %>
-  パスワードは<%= @minimum_password_length %> 文字以上
-<% end %>
-<%= render "endusers/shared/links" %>
