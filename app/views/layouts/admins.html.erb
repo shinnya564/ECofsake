@@ -12,7 +12,6 @@
   <body>
     <header>
       <div class= "col-xs-12 sp-menu">
-        <div class= 'container'>
           <div class= "col-xs-3 title">
             ECofsake
           </div>
@@ -25,11 +24,10 @@
                 <li><%= link_to(" ログアウト", destroy_admin_session_path, { method: :get ,class: "glyphicon glyphicon-log-out"}) %></li>
             </ul>
           </div>
-        </div>
       </div>
     </header>
 
-    <div class= 'container main'>
+    <div class= 'main'>
       <div class= "col-xs-12 welcom">
         <ul class="nav">
           <li><%= notice %></li>
