@@ -37,7 +37,8 @@
       </div>
     </header>
 
-    <div class= 'main'>
+  <div class= 'wrapper'>
+
       <div class= "col-xs-12 welcom">
         <ul class="nav">
           <% if end_user_signed_in? %>
@@ -49,8 +50,8 @@
         </ul>
       </div>
       <%= yield %>
+   <div class="container">
     </div>
-    <div class="wrapper">
       <footer>
           <div class= "col-xs-12 copylight">
             <div class= "col-xs-6" align="left">
@@ -61,7 +62,8 @@
             </div>
           </div>
       </footer>
-    </div>
+
+  </div>
   </body>
   <span id="back">
     <a href="#">
