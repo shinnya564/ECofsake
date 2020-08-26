@@ -41,7 +41,7 @@
       <div class= "col-xs-12 welcom">
         <ul class="nav">
           <% if end_user_signed_in? %>
-            <li>ようこそ！<%= current_end_user.family_name + current_end_user.first_name%> さん</li>
+            <li>ようこそ！<%= current_end_user.family_name + " " + current_end_user.first_name%> さん</li>
           <% else %>
             <li>ようこそ！ ゲスト さん</li>
           <% end %>

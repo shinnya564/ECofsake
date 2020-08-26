@@ -17,8 +17,8 @@ Rails.application.routes.draw do
   get 'search_types' => 'search#search_types'
 
   get 'inquiries' => 'inquiries#new'
-  post 'inquiries/confirm' => 'inquiries#confirm'
-  post 'inquiries/thanks' => 'inquiries#thanks'
+  get 'inquiries/confirm' => 'inquiries#confirm'
+  get 'inquiries/thanks' => 'inquiries#thanks'
 
   resources :bulletin_boards, only: [:index, :show, :create] do
     resources :bulletin_board_comments, only: [:create]
