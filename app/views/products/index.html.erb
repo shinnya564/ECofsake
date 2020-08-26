@@ -9,7 +9,7 @@
             <% end %>
             <h2>種類検索</h2><hr>
             <% @types.each do |type| %>
-                <li><%= link_to type.name , search_types_path(type), method: :get %></li>
+                <li><%= link_to type.name , search_types_path(type), method: :get %></li><br>
             <% end %>
         </div>
 
