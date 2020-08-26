@@ -106,8 +106,10 @@ class OrdersController < ApplicationController
     if @payment_flg == "0"
       @payment = "クレジットカード"
       @card_selection = params[:card_selection]
-      if @card_selection == "0"
-        card = params[:card][:card_id]
+      card = params[:card][:card_id]
+      if card == ""
+        redirect_to request.referer, notice: 'クレジットカードを選択してください'
+      else
         @card = Card.find(card)
         @customer_id = @card.customer_id
         @payment_card = @card.id
@@ -116,28 +118,8 @@ class OrdersController < ApplicationController
         customer = Payjp::Customer.retrieve(@customer_id)
         @default_card_information = customer.cards.retrieve(@card_id)
         @secret = "**** **** **** " + "#{@default_card_information.last4}"
-        if @card == ""
-          redirect_to request.referer, notice: 'クレジットカードを選択してください'
-        else
-        end
-      else
-        Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
-        customer = Payjp::Customer.create(
-          card: params['payjpToken'],
-          metadata: {end_user_id: current_end_user.id}
-        )
-        @card = Card.new
-        @card.end_user_id = current_end_user.id
-        @card.customer_id = customer.id
-        @card.card_id = customer.default_card
-        #dbに保存
-        if @card.save
-          customer = Payjp::Customer.retrieve(@card.customer_id)
-          @default_card_information = customer.cards.retrieve(@card.card_id)
-        else
-          redirect_to request.referer, notice: 'クレジットカード登録に失敗しました'
-        end
       end
+
       #お届け先条件分岐
       @address_selection = params[:address_selection]
       @address_id = params[:address][:address_id]

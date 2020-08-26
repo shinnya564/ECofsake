@@ -1,0 +1,7 @@
+
+ inherit_from:
+  - .rubocop_airbnb.yml
+
+ # Rails用に最適化
+ Rails:
+   Enabled: true

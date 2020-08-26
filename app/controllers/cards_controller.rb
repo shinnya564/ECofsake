@@ -25,7 +25,7 @@ class CardsController < ApplicationController
 	  	@end_user = current_end_user
 	  	@card = Card.new
 		@number = params[:card_number]
-		@exp_year = "20" + params[:card_exp_year]
+		@exp_year = params[:card_exp_year]
 		@exp_month = params[:card_exp_month]
 		@cvc = params[:card_cvc]
 	end
