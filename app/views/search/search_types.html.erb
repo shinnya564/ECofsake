@@ -9,7 +9,7 @@
             <% end %>
             <h2>種類検索</h2><hr>
             <% @types.each do |type| %>
-                <li><%= link_to type.name , search_types_path(type), method: :get %></li><bar>
+                <li><%= link_to type.name , search_types_path(type), method: :get %></li><br>
             <% end %>
         </div>
 
@@ -22,7 +22,7 @@
                         <% @products.each do |product| %>
                             <% if product.out_of_stock == false %>
                                 <% if product.type.invalid_status == true %>
-                                    <% if @loop == 3 %>
+                                    <% if @loop == 2 %>
                                             <td>
                                                 <%= link_to(product) do %>
                                                     <%= attachment_image_tag product, :image, fallback: "no_image.jpg",size: "200x200" %><br>
