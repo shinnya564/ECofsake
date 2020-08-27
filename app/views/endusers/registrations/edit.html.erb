@@ -31,14 +31,14 @@
       </div>
 
       <div class="col-xs-4">
+        <% if @minimum_password_length %>
+          <em>パスワードは<%= @minimum_password_length %>文字以上</em>
+        <% end %>
       </div>
       <div class="col-xs-8 field">
         <%= f.submit "確定する", class: "btn btn-primary" %>
       </div>
     <% end %>
 
-    <% if @minimum_password_length %>
-      <em>パスワードは<%= @minimum_password_length %>以上</em>
-    <% end %>
   </div>
 </div>

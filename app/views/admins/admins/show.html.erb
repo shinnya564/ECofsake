@@ -1,0 +1,29 @@
+
+<div class="col-xs-12">
+	<div class="col-xs-3">
+		<h2>サイドメニュー</h2><hr>
+		<% if @admin.id == 1 %>
+			<%= link_to "戻る", admins_admins_path, class:"btn btn-primary" %><br><br>
+		<% else %>
+			<%= link_to "編集する", edit_admins_admin_path(@admin.id), class:"btn btn-success" %><br><br>
+		<% end %>
+	</div>
+
+	<div class="col-xs-9">
+		<h2>No.<%= @admin.id%>の管理者情報</h2><hr>
+		<div class="col-xs-4">
+		    <h4>顧客ID</h4>
+		</div>
+		<div class="col-xs-8">
+	    	<h4><%= @admin.id %></h4>
+		</div>
+		<div class="col-xs-4">
+	        <h4>メールアドレス</h4>
+	    </div>
+		<div class="col-xs-8">
+	        <h4><%= @admin.email %></h4>
+	    </div>
+		<div class="col-xs-4">
+	    </div>
+	</div>
+</div>

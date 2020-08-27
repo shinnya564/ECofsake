@@ -38,33 +38,27 @@
     	<h3 class="page-header">新規投稿</h3>
 		<%= form_for(@board) do |f| %>
 			<div class="col-xs-3">
-				<%= f.label :title %>
+				<%= f.label "タイトル" %>
 			</div>
 			<div class="col-xs-9 field">
 				<%= f.text_field :title, class: 'form-control' %>
 			</div>
 			<div class="col-xs-3">
-				<%= f.label :name %>
+				<%= f.label "投稿者名" %>
 			</div>
 			<div class="col-xs-9 field">
 				<%= f.text_field :name, class: 'form-control col-xs-6 field' %>
 			</div>
 			<div class="col-xs-3">
-				<%= f.label :body %>
+				<%= f.label "内容" %>
 			</div>
 			<div class="col-xs-9 field">
 				<%= f.text_area :body, class: 'form-control col-xs-6 field' %>
 			</div>
 			<div class="col-xs-3">
-				<%= f.label :delete_password %>
 			</div>
 			<div class="col-xs-9 field">
-				<%= f.password_field :delete_password, class: 'form-control col-xs-6 field' %>
-			</div>
-			<div class="col-xs-3">
-			</div>
-			<div class="col-xs-9 field">
-				<%= f.submit class: "btn btn-primary field" %>
+				<%= f.submit "新規作成", class: "btn btn-primary field" %>
 			</div>
 		<% end %>
 	</div>
