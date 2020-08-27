@@ -17,6 +17,7 @@ class BulletinBoardsController < ApplicationController
   end
 
   def show
+    @no = 1
     @board = BulletinBoard.find(params[:id])
     @comments = @board.bulletin_board_comments
     @comment = BulletinBoardComment.new

@@ -20,7 +20,7 @@ class InquiriesController < ApplicationController
       else
       end
       # NG。入力画面を再表示
-      render :action => 'index'
+      render :action => 'new'
     end
   end
 
@@ -28,8 +28,6 @@ class InquiriesController < ApplicationController
   	# メール送信
     @inquiry = Inquiry.new(inquiry_params)
     InquiryMailer.received_email(@inquiry).deliver
-    # 完了画面を表示
-    render :action => 'thanks'
   end
 
   private

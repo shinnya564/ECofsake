@@ -25,7 +25,7 @@ class ProductsController < ApplicationController
         end
       else
       end
-    per = 18
+    per = 9
     types = Type.where(invalid_status: true)
     @products = Product.where(out_of_stock: false, type_id: types.pluck(:id)).page(params[:page]).per(per).order(id: "DESC")
     end
@@ -33,6 +33,7 @@ class ProductsController < ApplicationController
 
   def show
     @TAX = 1.08
+    @no = 0
 
     #商品値段計算
     @product = Product.find(params[:id])
