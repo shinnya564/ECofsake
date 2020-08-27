@@ -1,0 +1,119 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+/*bootstrap導入*/
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+/*ページ先頭に戻る設定*/
+#back {
+  position: fixed;
+  right: 20px;
+  bottom: 10px;
+  background-color: #FFFFFF;
+}
+
+.allow{
+  align: right;
+}
+
+/*スライド画像設定*/
+.main1{
+  background-image: image-url("main1.jpg")
+}
+
+.main2{
+  background-image: image-url("main2.jpg")
+}
+
+/*menu設定*/
+.sp-menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding: 10px 20px;
+  background: #000;
+  color: #fff;
+  width: 100%;
+  min-height: 20px;
+  z-index: 1000;
+}
+
+.sp-menu a{						/*Link_toはアンカーに変わる*/
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.menu{
+	margin-top: 0px;
+	background-color: #000;
+	text-align: center;
+}
+
+.title{
+  font-size: 30px;
+  margin-top: 5px;
+}
+
+/*header設定*/
+header{
+	color: #FFFFFF;
+	background-color: #000000;
+}
+
+.row{
+	margin: 0px;
+}
+
+.logo{
+  max-width: 100%;
+  height: 600px;
+  background-position: center;
+  background-size: cover;
+}
+
+.welcom{
+    margin-top: 80px;
+}
+
+/*footer設定*/
+.wrapper{
+  min-height: 100vh;
+  position: relative;/*←相対位置*/
+  padding-bottom: 120px;/*←footerの高さ*/
+  box-sizing: border-box;/*←全て含めてmin-height:100vhに*/
+}
+
+footer{
+  width: 100%;
+  min-height: 100px;
+	color: #FFFFFF;
+	background-color: #000000;
+  margin-top: 50px;
+  position: absolute;/*←絶対位置*/
+  bottom: 0; /*下に固定*/
+}
+
+.inquiry{
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.copylight{
+	margin-top: 10px;
+}
