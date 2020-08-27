@@ -33,6 +33,7 @@ class ProductsController < ApplicationController
 
   def show
     @TAX = 1.08
+    @no = 0
 
     #商品値段計算
     @product = Product.find(params[:id])

@@ -76,9 +76,7 @@
 		</table>
 	<h2>コメント・レビュー</h2>
 	<% @comments.each do |comment| %>
-		<p>投稿者：<%= comment.name %></p>
-		<p id="star1">a</p>
-		<p>Hint: <span id="hint2"></span></p>
+		<p><%= @no += 1 %>.投稿者：<%= comment.name %></p>
 		<p><%= comment.comment %></p><br>
 		<% end %>
 	<% if end_user_signed_in? %>
@@ -89,7 +87,7 @@
 		    		<li><%= message %></li>
 		      	<% end %>
 		    </ul>
-			<% end %>
+		<% end %>
 		<%= form_with model:([@product,@comment]), local: true do |f| %>
 			<div class="col-xs-3">
 				<%= f.label :name %>
