@@ -1,3 +1,4 @@
+
 $(document).ready(function(){
   if (document.getElementById("token_submit") != null) { //token_submitというidがnullの場合、下記コードを実行しない
     console.log("hoge")   //表示test用
@@ -27,7 +28,7 @@ $(document).ready(function(){
           var form = $('#card_form')
           form.append(payjphtml);
           //↑これはdbにトークンを保存するのでjsで作ったトークンをセットしてる
-          form.submit("#token_submit");
+          form.submit();
             console.log("submit")
           //↑そしてここでsubmit！！これでrailsのアクションにいく！もちろん上でトークンをセットしているのでparamsの中には{payjpToken="トークン"}という情報が入っている
         }else{
@@ -36,6 +37,7 @@ $(document).ready(function(){
         }
       });
     });
+
   } else {
     console.log("fuga")
   };

@@ -3,7 +3,7 @@ class AddressesController < ApplicationController
   before_action :authenticate_end_user!
 
   def index
-  	@address = Address.new
+    @address = Address.new
     @end_user = current_end_user
     @addresses = @end_user.addresses
   end

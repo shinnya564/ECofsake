@@ -6,7 +6,7 @@
 		<p><%= @board.body %></p><br>
 
 		<% @comments.each do |comment| %>
-			<p><%= comment.id + 1 %>.投稿者：<%= comment.name %></p>
+			<p><%= @no = @no + 1 %>.投稿者：<%= comment.name %></p>
 			<p><%= comment.comment %></p><br>
 		<% end %>
 	</div>
