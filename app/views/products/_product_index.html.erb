@@ -1,0 +1,48 @@
+
+    <table class="table table-striped table-inverse">
+        <tbody align="left">
+            <tr>
+                <% @products.each do |product| %>
+                    <% if product.out_of_stock == false %>
+                        <% if product.type.invalid_status == true %>
+                            <% if @loop == 2 %>
+                                    <td>
+                                        <%= link_to((product), data: {"turbolinks" => false}) do %>
+                                            <%= attachment_image_tag product, :image, fallback: "no_image.jpg",size: "200x200" %><br>
+                                        <% end %>
+                                        <h4><%= link_to product.name, product_path(product.id), data: {"turbolinks" => false} %></h4>
+                                        <h4>¥<%= (product.price_excluding * @TAX).ceil %>(税込)</h4>
+                                    </td>
+                                </tr>
+                                <tr>
+                                <% @loop = 0 %>
+                        <% else %>
+                            <td>
+                                <%= link_to((product), data: {"turbolinks" => false}) do %>
+
+                                    <%= attachment_image_tag product, :image, fallback: "no_image.jpg",size: "200x200" %><br>
+
+                                <% end %>
+                                <h4><%= link_to product.name, product_path(product.id), data: {"turbolinks" => false} %></h4>
+                                <h4>¥<%= (product.price_excluding * @TAX).ceil %>(税込)</h4>
+                            </td>
+                            <% @loop += 1 %>
+                        <% end %>
+                        <% else %>
+                        <% end %>
+                    <% else %>
+                        <td>
+                            <%= link_to((product), data: {"turbolinks" => false}) do %>
+
+                                <%= attachment_image_tag product, :image, fallback: "no_image.jpg",size: "200x200" %><br>
+
+                            <% end %>
+                            <%= link_to product.name, product_path(product.id), data: {"turbolinks" => false} %><br>
+                            ¥<%= (product.price_excluding * @TAX).ceil %>円
+                        </td>
+                        <% @loop += 1 %>
+                    <% end %>
+                <% end %>
+            </tr>
+        </tbody>
+    </table>

@@ -21,7 +21,7 @@
 				        <% @cards.each do |card| %>
 				        	<tr>
 				            	<td>
-				            		<%= "**** **** **** " + @default_card_information.last4 %>
+				            		<%= card.card_last4(card) %>
 				            	</td>
 				            	<td>
 				            		<% exp_month = @default_card_information.exp_month.to_s %>

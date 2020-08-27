@@ -94,9 +94,9 @@ class OrdersController < ApplicationController
       @total = @total + @subtotal
     end
 
-    if @subtotal >= 8000
+    if @total >= 8000
       @charriage = 0
-    elsif @subtotal >= 3000
+    elsif @total >= 3000
       @charriage = 500
     else
       @charriage = 1000
@@ -108,7 +108,7 @@ class OrdersController < ApplicationController
       @card_selection = params[:card_selection]
       card = params[:card][:card_id]
       if card == ""
-        redirect_to request.referer, notice: 'クレジットカードを選択してください'
+        redirect_to request.referer, notice: 'クレジットカードを選択してください' and return
       else
         @card = Card.find(card)
         @customer_id = @card.customer_id
