@@ -1,0 +1,24 @@
+
+	<script type="text/javascript" src="https://js.pay.jp/v1/"></script>
+
+	<div class="col-xs-12">
+		<h1 class="page-header">カード情報確認</h1>
+
+		<%= form_with(model:([@end_user,@card]), local: true, id: 'card_form',  name: "inputForm") do |f| %>
+			<div class="col-xs-12">
+				<h2 class="page-header">クレジットカード番号</h2>
+				<h3><%= @number %></h3><br>
+				<%= hidden_field_tag :card_number , @number, class: "number", id: "card_number", name: :number %>
+				<h2 class="page-header">有効期限</h2>
+				<h3><%= @exp_month %> / <%= @exp_year %></h3><br>
+				<%= hidden_field_tag :card_exp_month , @exp_month, class: "exp_month", id: "card_exp_month" %>
+				<%= hidden_field_tag :card_exp_year , @exp_year, class: "exp_year", id: "card_exp_year" %>
+				<h2 class="page-header">セキュリティコード</h2>
+				<h3><%= @cvc%></h3><br>
+				<%= hidden_field_tag :card_cvc , @cvc, class: "cvc", id: "card_cvc" %>
+				<h2><%= f.submit "確定", id: "token_submit", class: "btn btn-primary btn-lg" %></h2>
+				<%= hidden_field_tag :card_selection, 1, id: "card_on" %>
+				<%= hidden_field_tag :payment_flg, 0, id: "payment_card" %>
+			</div>
+		<% end %>
+	</div>

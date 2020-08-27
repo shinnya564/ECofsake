@@ -1,2 +1,63 @@
-<h1>Admins::EndUsers#edit</h1>
-<p>Find me in app/views/admins/end_users/edit.html.erb</p>
+
+<div class="col-xs-12">
+	<h2><%= @end_user.family_name+@end_user.first_name%>さんの会員情報編集</h2><hr>
+	    <%= form_for @end_user, url:admins_end_user_path(@end_user) do |f| %>
+		<div class="col-xs-3">
+		    <h4>会員ID</h4>
+		</div>
+		<div class="col-xs-9">
+		    <h4><%= @end_user.id %></h4>
+		</div>
+		<div class="col-xs-3">
+		    <h4>氏名</h4>
+		</div>
+		<div class="col-xs-9 field">
+		    <%= f.text_field :family_name, class: 'form-control field' %>
+		    <%= f.text_field :first_name, class: 'form-control field' %>
+		</div>
+		<div class="col-xs-3">
+		    <h4>フリガナ</h4>
+		</div>
+		<div class="col-xs-9 field">
+		    <%= f.text_field :kana_family_name, class: 'form-control field' %>
+		    <%= f.text_field :kana_first_name, class: 'form-control field' %>
+		</div>
+		<div class="col-xs-3">
+		    <h4>郵便番号</h4>
+		</div>
+		<div class="col-xs-9 field">
+		    <%= f.text_field :postal_code, class: 'form-control' %>
+		</div>
+		<div class="col-xs-3">
+	        <h4>住所</h4>
+		</div>
+		<div class="col-xs-9 field">
+		    <%= f.text_field :address, class: 'form-control' %>
+		</div>
+		<div class="col-xs-3">
+		    <h4>電話番号</h4>
+		</div>
+		<div class="col-xs-9 field">
+			<%= f.text_field :tel, class: 'form-control' %>
+		</div>
+		<div class="col-xs-3">
+		    <h4>メールアドレス</h4>
+		</div>
+		<div class="col-xs-9 field">
+		    <%= f.email_field :email, class: 'form-control' %>
+		</div>
+		<div class="col-xs-3">
+		    <h4>会員ステータス</h4>
+		</div>
+		<div class="col-xs-9 field">
+		    <label><%= f.radio_button :delete_status, false %>有効</label>
+		    <label><%= f.radio_button :delete_status, true %>退会済み</label>
+		</div>
+		<div class="col-xs-3">
+		</div>
+		<div class="col-xs-9 field">
+		    <%= f.submit "変更を保存する", class:"btn btn-primary"%>
+	    </div>
+	    <% end %>
+	</div>
+</div>

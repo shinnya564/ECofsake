@@ -3,6 +3,7 @@ class EndUser < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
 
 	has_many :addresses
+	has_many :cards
 	has_many :carts
 	has_many :orders
 

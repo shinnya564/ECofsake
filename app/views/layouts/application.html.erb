@@ -4,7 +4,6 @@
     <title>ECofsake</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
@@ -12,63 +11,61 @@
   <body>
     <header>
       <div class= "col-xs-12 sp-menu">
-        <div class= 'container'>
-          <div class= "col-xs-3 title">
+          <div class= "col-xs-2 title">
             ECofsake
           </div>
-          <div class= "col-xs-9">
+          <div class= "col-xs-10">
             <ul class="nav navbar-nav menu">
               <% if end_user_signed_in? %>
-                <li><%= link_to(" TOP", root_path, {class: "glyphicon glyphicon-home"}) %></li>
-                <li> <%= link_to(" お酒の紹介", tops_introduction_path, {class: "glyphicon glyphicon-cutlery"}) %></li>
-                <li><%= link_to(" マイページ", end_user_path(current_end_user.id), {class: "glyphicon glyphicon-user"}) %></li>
-                <li><%= link_to(" 商品一覧", products_path, {class: "glyphicon glyphicon-cutlery"}) %></li>
-                <li> <%= link_to(" 掲示板", bulletin_boards_path, {class: "glyphicon glyphicon-cutlery"}) %></li>
-                <li><%= link_to(" カート", end_user_carts_path(current_end_user.id), {class: "glyphicon glyphicon-shopping-cart"}) %></li>
-                <li><%= link_to(" ログアウト", destroy_end_user_session_path, { method: :get ,class: "glyphicon glyphicon-log-out"}) %></li>
+                <li><%= link_to("TOP", root_path, {class: "glyphicon glyphicon-home"}) %></li>
+                <li> <%= link_to("お酒の紹介", tops_introduction_path, {class: "glyphicon glyphicon-cutlery"}) %></li>
+                <li><%= link_to("マイページ", end_user_path(current_end_user.id), {class: "glyphicon glyphicon-user"}) %></li>
+                <li><%= link_to("商品一覧", products_path, {class: "glyphicon glyphicon-cutlery"}) %></li>
+                <li> <%= link_to("掲示板", bulletin_boards_path, {class: "glyphicon glyphicon-cutlery"}) %></li>
+                <li><%= link_to("カート", end_user_carts_path(current_end_user.id), {class: "glyphicon glyphicon-shopping-cart"}) %></li>
+                <li><%= link_to("ログアウト", destroy_end_user_session_path, { method: :get ,class: "glyphicon glyphicon-log-out"}) %></li>
               <% else %>
-                <li> <%= link_to(" TOP", root_path, {class: "glyphicon glyphicon-home"}) %></li>
-                <li> <%= link_to(" お酒の紹介", tops_introduction_path, {class: "glyphicon glyphicon-cutlery"}) %></li>
-                <li> <%= link_to(" 掲示板", bulletin_boards_path, {class: "glyphicon glyphicon-cutlery"}) %></li>
-                <li><%= link_to(" 商品一覧", products_path, {class: "glyphicon glyphicon-cutlery"}) %></li>
-                <li> <%= link_to(" 新規登録", new_end_user_registration_path, {class: "glyphicon glyphicon-edit"}) %></li>
-                <li> <%= link_to(" ログイン", new_end_user_session_path, {class: "glyphicon glyphicon-log-in"}) %> </li>
+                <li> <%= link_to("TOP", root_path, {class: "glyphicon glyphicon-home"}) %></li>
+                <li> <%= link_to("お酒の紹介", tops_introduction_path, {class: "glyphicon glyphicon-cutlery"}) %></li>
+                <li> <%= link_to("掲示板", bulletin_boards_path, {class: "glyphicon glyphicon-cutlery"}) %></li>
+                <li><%= link_to("商品一覧", products_path, {class: "glyphicon glyphicon-cutlery"}) %></li>
+                <li> <%= link_to("新規登録", new_end_user_registration_path, {class: "glyphicon glyphicon-edit"}) %></li>
+                <li> <%= link_to("ログイン", new_end_user_session_path, {class: "glyphicon glyphicon-log-in"}) %> </li>
               <% end %>
             </ul>
           </div>
-        </div>
       </div>
     </header>
 
-    <div class= 'container main'>
+    <div class= 'wrapper'>
       <div class= "col-xs-12 welcom">
         <ul class="nav">
           <% if end_user_signed_in? %>
-            <li>ようこそ！<%= current_end_user.family_name + current_end_user.first_name%> さん</li>
+            <li>ようこそ！<%= current_end_user.family_name + " " + current_end_user.first_name%> さん</li>
           <% else %>
             <li>ようこそ！ ゲスト さん</li>
           <% end %>
+          <li><%= notice %></li>
         </ul>
       </div>
-      <%= notice %>
       <%= yield %>
-    </div>
-    <div class="wrapper">
+      <div class="container">
+      </div>
       <footer>
-        <div class= "col-xs-12 copylight">
-          <div class= "col-xs-6" align="left">
-            お問い合わせ
+          <div class= "col-xs-12 copylight">
+            <div class= "col-xs-6" align="left">
+              <%= link_to("お問い合わせ", inquiries_path, class: "glyphicon glyphicon-envelope inquiry") %>
+            </div>
+            <div class= "col-xs-6" align="right">
+              &copy; ECofsake
+            </div>
           </div>
-          <div class= "col-xs-6" align="right">
-            &copy; ECofsake
-          </div>
-        </div>
       </footer>
     </div>
   </body>
   <span id="back">
     <a href="#">
-      <img src="/assets/arrow.png" width="50" height="50" align="right" >
+      <%= image_tag asset_path("arrow.png"),size: "50x50", class: "allow"%>
     </a>
   </span>
 </html>
