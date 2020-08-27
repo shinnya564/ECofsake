@@ -23,14 +23,14 @@
 	    <% end %>
 		<%= form_with model:([@board,@comment]) do |f| %>
 			<div class="col-xs-3">
-				<%= f.label :name %>
+				<%= f.label "投稿者名" %>
 			</div>
 			<div class="col-xs-9 field">
 				<%= f.text_field :name, class: 'form-control' %>
 			</div>
 
 			<div class="col-xs-3">
-				<%= f.label :comment %>
+				<%= f.label "コメント" %>
 			</div>
 			<div class="col-xs-9 field">
 				<%= f.text_area :comment, class: 'form-control' %>
@@ -39,7 +39,7 @@
 			<div class="col-xs-3">
 			</div>
 			<div class="col-xs-9 field">
-				<%= f.submit class: "btn btn-primary" %>
+				<%= f.submit "投稿する", class: "btn btn-primary" %>
 			</div>
 		<% end %>
 	</div>

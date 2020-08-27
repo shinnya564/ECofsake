@@ -8,12 +8,9 @@ class CardsController < ApplicationController
 	  	@end_user = current_end_user
 	  	@cards = @end_user.cards
 		card = Card.where(end_user_id: current_end_user.id).first
-    	if card.blank?
-	    else
-	    	Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
-	    	customer = Payjp::Customer.retrieve(card.customer_id)
-	    	@default_card_information = customer.cards.retrieve(card.card_id)
-	    end
+		Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
+		customer = Payjp::Customer.retrieve(card.customer_id)
+	    @default_card_information = customer.cards.retrieve(card.card_id)
 	end
 
 	def new

@@ -8,7 +8,7 @@ class SearchController < ApplicationController
 	    @loop = 0
 
 	    per = 9
-	    @searches = @search.where(out_of_stock: false, type_id: @types.pluck(:id)).page(params[:page]).per(per)
+	    @products = @search.where(out_of_stock: false, type_id: @types.pluck(:id)).page(params[:page]).per(per)
 	end
 
 	def search_types
