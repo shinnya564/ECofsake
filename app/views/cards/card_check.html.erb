@@ -17,6 +17,8 @@
 				<h3><%= @cvc%></h3><br>
 				<%= hidden_field_tag :card_cvc , @cvc, class: "cvc", id: "card_cvc" %>
 				<h2><%= f.submit "確定", id: "token_submit", class: "btn btn-primary btn-lg" %></h2>
+				<%= hidden_field_tag :card_selection, 1, id: "card_on" %>
+				<%= hidden_field_tag :payment_flg, 0, id: "payment_card" %>
 			</div>
 		<% end %>
 	</div>

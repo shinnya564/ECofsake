@@ -7,7 +7,7 @@ class SearchController < ApplicationController
 	    @TAX = 1.08
 	    @loop = 0
 
-	    per = 8
+	    per = 9
 	    @searches = @search.where(out_of_stock: false, type_id: @types.pluck(:id)).page(params[:page]).per(per)
 	end
 
@@ -21,7 +21,7 @@ class SearchController < ApplicationController
 
 	    #ジャンル抽出
 	    types = Type.where(invalid_status: true)
-	    per = 8
+	    per = 9
 	    @products = @all_products.where(out_of_stock: false, type_id: types.pluck(:id)).page(params[:page]).per(per)
 	end
 end
