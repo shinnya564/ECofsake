@@ -29,8 +29,8 @@
 		</div>
 		<div class="col-xs-8">
 			<h3>
-				&nbsp;¥ <%= (@product.price_excluding * 1.08).ceil %><br>
-				(¥ <%= @product.price_excluding %>)
+				&nbsp;¥ <%= ((@product.price_excluding * 1.08).ceil).to_s(:delimited) %><br>
+				(¥ <%= (@product.price_excluding).to_s(:delimited) %>)
 			</h3>
 		</div>
 		<div class="col-xs-4">

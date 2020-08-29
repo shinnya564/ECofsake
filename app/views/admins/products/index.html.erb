@@ -19,7 +19,7 @@
             <tr>
                 <td class="col text-center"> <%= product.id %></td>
                 <td class="col text-center"><%= link_to product.name, admins_product_path(product.id) %></td>
-                <td class="col text-center">¥ <%= product.price_excluding %></td>
+                <td class="col text-center">¥ <%= (product.price_excluding).to_s(:delimited) %></td>
                 <td class="col text-center"><%= product.type.name %></td>
                 <td class="col text-center">
                     <% if product.out_of_stock == false %>
