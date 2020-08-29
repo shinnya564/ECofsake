@@ -20,9 +20,12 @@
 					<% @carts.each do |cart| %>
 						<tr>
 							<td><%= cart.product.name %></td>
-							<td>¥<%= @price = (cart.product.price_excluding * @TAX).ceil %></td>
+							<td>
+								<% @price = (cart.product.price_excluding * @TAX).ceil %>
+								¥<%= @price.to_s(:delimited) %>
+							</td>
 							<td><%= cart.quantity %></td>
-							<td>¥<%= @price * cart.quantity %></td>
+							<td>¥<%= (@price * cart.quantity).to_s(:delimited) %></td>
 						</tr>
 					<% end %>
 					<%= f.hidden_field :total_quantity , :value => @total_quantity %>
@@ -35,16 +38,16 @@
 				<thead>
 					<tr>
 						<th>送料(税込)</th>
-						<td>¥<%= @charriage %></td>
+						<td>¥<%= (@charriage).to_s(:delimited) %></td>
 						<%= f.hidden_field :charriage , :value => @charriage %>
 					</tr>
 					<tr>
 						<th>商品合計(税込)</th>
-						<td>¥<%= @total %></td>
+						<td>¥<%= @total.to_s(:delimited) %></td>
 					</tr>
 					<tr>
 						<th>請求金額(税込)</th>
-						<th>¥<%= @total + @charriage %></th>
+						<th>¥<%= (@total + @charriage).to_s(:delimited) %></th>
 						<%= f.hidden_field :billing_amount , :value => @total + @charriage %>
 					</tr>
 				</thead>
