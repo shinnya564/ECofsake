@@ -11,7 +11,7 @@
                                             <%= attachment_image_tag product, :image, fallback: "no_image.jpg",size: "200x200" %><br>
                                         <% end %>
                                         <h4><%= link_to product.name, product_path(product.id), data: {"turbolinks" => false} %></h4>
-                                        <h4>¥<%= (product.price_excluding * @TAX).ceil %>(税込)</h4>
+                                        <h4>¥<%= ((product.price_excluding * @TAX).ceil).to_s(:delimited) %>(税込)</h4>
                                     </td>
                                 </tr>
                                 <tr>
@@ -24,7 +24,7 @@
 
                                 <% end %>
                                 <h4><%= link_to product.name, product_path(product.id), data: {"turbolinks" => false} %></h4>
-                                <h4>¥<%= (product.price_excluding * @TAX).ceil %>(税込)</h4>
+                                <h4>¥<%= ((product.price_excluding * @TAX).ceil).to_s(:delimited) %>(税込)</h4>
                             </td>
                             <% @loop += 1 %>
                         <% end %>
@@ -38,7 +38,7 @@
 
                             <% end %>
                             <%= link_to product.name, product_path(product.id), data: {"turbolinks" => false} %><br>
-                            ¥<%= (product.price_excluding * @TAX).ceil %>円
+                            ¥<%= ((product.price_excluding * @TAX).ceil).to_s(:delimited) %>円
                         </td>
                         <% @loop += 1 %>
                     <% end %>

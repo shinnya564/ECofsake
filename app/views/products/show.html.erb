@@ -48,7 +48,7 @@
 	<table class="table">
 		<tr>
 			<th>
-				<h4>単価：￥<%= @price %>(税込)</h4>
+				<h4>単価：￥<%= @price.to_s(:delimited) %>(税込)</h4>
 			</th>
 			<th>
 				<% if end_user_signed_in? %>
