@@ -1,17 +1,7 @@
 
     <div class="col-xs-12">
-        <div class="col-xs-3">
-            <!--  検索拡張機能  -->
-            <h2>商品名検索</h2><hr>
-            <%= form_tag(search_products_path, :method => 'get' ) do %>
-                <%= text_field_tag :search %></br><br>
-                <%= submit_tag 'Search' %>
-            <% end %>
-            <h2>種類検索</h2><hr>
-            <% @types.each do |type| %>
-                <li><%= link_to type.name , search_types_path(type), method: :get %></li><br>
-            <% end %>
-        </div>
+
+        <%= render 'search/search_form' %>
 
         <div class="col-xs-9">
             <h2><%= @type %>商品全<%= @number %>件</h2>
