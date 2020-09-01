@@ -19,9 +19,15 @@
               <% if end_user_signed_in? %>
                 <li><%= link_to("TOP", root_path, class: "glyphicon glyphicon-home", data: {"turbolinks" => false}) %></li>
                 <li> <%= link_to("お酒の紹介", tops_introduction_path, class: "glyphicon glyphicon-glass", data: {"turbolinks" => false}) %></li>
+<<<<<<< HEAD
                 <li> <%= link_to("掲示板", bulletin_boards_path, class: "glyphicon glyphicon-comment", data: {"turbolinks" => false}) %></li>
                 <li><%= link_to("商品一覧", products_path, class: "glyphicon glyphicon-briefcase", data: {"turbolinks" => false}) %></li>
                 <li><%= link_to("マイページ", end_user_path(current_end_user.id), class: "glyphicon glyphicon-user", data: {"turbolinks" => false}) %></li>
+=======
+                <li><%= link_to("マイページ", end_user_path(current_end_user.id), class: "glyphicon glyphicon-user", data: {"turbolinks" => false}) %></li>
+                <li> <%= link_to("掲示板", bulletin_boards_path, class: "glyphicon glyphicon-comment", data: {"turbolinks" => false}) %></li>
+                <li><%= link_to("商品一覧", products_path, class: "glyphicon glyphicon-briefcase", data: {"turbolinks" => false}) %></li>
+>>>>>>> 07f14abdfbea38b5f97a336ed871d02e3b1e85db
                 <li><%= link_to("カート", end_user_carts_path(current_end_user.id), class: "glyphicon glyphicon-shopping-cart", data: {"turbolinks" => false}) %></li>
                 <li><%= link_to("ログアウト", destroy_end_user_session_path, method: :get ,class: "glyphicon glyphicon-log-out", data: {"turbolinks" => false}) %></li>
               <% else %>
