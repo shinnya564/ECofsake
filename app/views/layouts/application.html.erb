@@ -17,25 +17,26 @@
           <div class= "col-xs-10">
             <ul class="nav navbar-nav menu">
               <% if end_user_signed_in? %>
-                <li><%= link_to("TOP", root_path, {class: "glyphicon glyphicon-home"}) %></li>
-                <li> <%= link_to("お酒の紹介", tops_introduction_path, {class: "glyphicon glyphicon-glass"}) %></li>
-                <li><%= link_to("マイページ", end_user_path(current_end_user.id), {class: "glyphicon glyphicon-user"}) %></li>
-                <li><%= link_to("商品一覧", products_path, {class: "glyphicon glyphicon-briefcase"}) %></li>
-                <li> <%= link_to("掲示板", bulletin_boards_path, {class: "glyphicon glyphicon-comment"}) %></li>
-                <li><%= link_to("カート", end_user_carts_path(current_end_user.id), {class: "glyphicon glyphicon-shopping-cart"}) %></li>
-                <li><%= link_to("ログアウト", destroy_end_user_session_path, { method: :get ,class: "glyphicon glyphicon-log-out"}) %></li>
+                <li><%= link_to("TOP", root_path, class: "glyphicon glyphicon-home", data: {"turbolinks" => false}) %></li>
+                <li> <%= link_to("お酒の紹介", tops_introduction_path, class: "glyphicon glyphicon-glass", data: {"turbolinks" => false}) %></li>
+                <li> <%= link_to("掲示板", bulletin_boards_path, class: "glyphicon glyphicon-comment", data: {"turbolinks" => false}) %></li>
+                <li><%= link_to("商品一覧", products_path, class: "glyphicon glyphicon-briefcase", data: {"turbolinks" => false}) %></li>
+                <li><%= link_to("マイページ", end_user_path(current_end_user.id), class: "glyphicon glyphicon-user", data: {"turbolinks" => false}) %></li>
+                <li><%= link_to("カート", end_user_carts_path(current_end_user.id), class: "glyphicon glyphicon-shopping-cart", data: {"turbolinks" => false}) %></li>
+                <li><%= link_to("ログアウト", destroy_end_user_session_path, method: :get ,class: "glyphicon glyphicon-log-out", data: {"turbolinks" => false}) %></li>
               <% else %>
-                <li> <%= link_to("TOP", root_path, {class: "glyphicon glyphicon-home"}) %></li>
-                <li> <%= link_to("お酒の紹介", tops_introduction_path, {class: "glyphicon glyphicon-glass"}) %></li>
-                <li> <%= link_to("掲示板", bulletin_boards_path, {class: "glyphicon glyphicon-comment"}) %></li>
-                <li><%= link_to("商品一覧", products_path, {class: "glyphicon glyphicon-briefcase"}) %></li>
-                <li> <%= link_to("新規登録", new_end_user_registration_path, {class: "glyphicon glyphicon-edit"}) %></li>
-                <li> <%= link_to("ログイン", new_end_user_session_path, {class: "glyphicon glyphicon-log-in"}) %> </li>
+                <li> <%= link_to("TOP", root_path, class: "glyphicon glyphicon-home", data: {"turbolinks" => false}) %></li>
+                <li> <%= link_to("お酒の紹介", tops_introduction_path, class: "glyphicon glyphicon-glass", data: {"turbolinks" => false}) %></li>
+                <li> <%= link_to("掲示板", bulletin_boards_path, class: "glyphicon glyphicon-comment", data: {"turbolinks" => false}) %></li>
+                <li><%= link_to("商品一覧", products_path, class: "glyphicon glyphicon-briefcase", data: {"turbolinks" => false}) %></li>
+                <li> <%= link_to("新規登録", new_end_user_registration_path, class: "glyphicon glyphicon-edit", data: {"turbolinks" => false}) %></li>
+                <li> <%= link_to("ログイン", new_end_user_session_path, class: "glyphicon glyphicon-log-in", data: {"turbolinks" => false}) %> </li>
               <% end %>
             </ul>
           </div>
       </div>
     </header>
+
 
     <div class= 'wrapper'>
       <div class= "col-xs-12 welcom">
@@ -54,7 +55,7 @@
       <footer>
           <div class= "col-xs-12 copylight">
             <div class= "col-xs-6" align="left">
-              <%= link_to("お問い合わせ", inquiries_path, class: "glyphicon glyphicon-envelope inquiry") %>
+              <%= link_to("お問い合わせ", inquiries_path, class: "glyphicon glyphicon-envelope inquiry", data: {"turbolinks" => false}) %>
             </div>
             <div class= "col-xs-6" align="right">
               &copy; ECofsake

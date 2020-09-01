@@ -18,7 +18,7 @@
 		<div class='col-xs-9'>
 			<%= link_to "新しくカードを登録する", new_end_user_card_path(@end_user), class: "btn btn-success field" %><br><br>
 		</div>
-		<%= f.radio_button :payment_flg, 1 %>代引支払<br>
+		<%= f.radio_button :payment_flg, 1 %>代引支払<br><br>
 
 		<h3>お届け先</h3>
 		<%= radio_button_tag :address_selection, 0 %>ご自身の住所<br>

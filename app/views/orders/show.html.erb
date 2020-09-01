@@ -29,15 +29,15 @@
       <table class="table">
         <tr>
           <td>商品小計</td>
-          <td>¥<%= @total_price %></td>
+          <td>¥<%= @total_price.to_s(:delimited) %></td>
         </tr>
         <tr>
           <td>送料</td>
-          <td>¥<%= @order.charriage %></td>
+          <td>¥<%= @order.charriage.to_s(:delimited) %></td>
         </tr>
         <tr>
           <td>ご請求額</td>
-          <td>¥<%= @order.billing_amount%></td>
+          <td>¥<%= @order.billing_amount.to_s(:delimited) %></td>
         </tr>
       </table>
 
@@ -52,9 +52,9 @@
         <% @order_items.each do |item| %>
           <tr>
             <td><%= item.name %> </td>
-            <td>¥<%= item.price %></td>
+            <td>¥<%= item.price.to_s(:delimited) %></td>
             <td><%= item.quantity %></td>
-            <td>¥<%= item.price * item.quantity %></td>
+            <td>¥<%= (item.price * item.quantity).to_s(:delimited) %></td>
           </tr>
         <% end %>
       </table>

@@ -11,49 +11,58 @@ class OrdersController < ApplicationController
   end
 
   def create
-    #orderレコードの作成
-    params[:order][:payment_flg] = params[:order][:payment_flg].to_i
-    @order = Order.new(order_params)
-    @end_user = current_end_user
-    @order.end_user_id = @end_user.id
-    @order.status_flg = 0
-    @order.save
-
-    #order_itemレコードの作成
-    @TAX = 1.08    #税込価格計算用、税率8％
-    @order_items = @end_user.carts
-
-    @order_items.each do |order_item|
-      @product = Product.find(order_item.product_id)
-      @order_item = OrderItem.new
-      @order_item.order_id = @order.id
-      @order_item.product_id = order_item.product_id
-      @order_item.name = @product.name
-      @order_item.price = (@product.price_excluding * @TAX).ceil
-      @order_item.quantity = order_item.quantity
-      @order_item.production_status = 0
-      @order_item.save
+      params[:order][:payment_flg] = params[:order][:payment_flg].to_i
+      @order = Order.new(order_params)
+      @end_user = current_end_user
+      @order.end_user_id = @end_user.id
+      @order.status_flg = 0
 
       #クレジットカード支払い料金請求
       if @order.payment_flg == "クレジットカード"
-        # 購入した際の情報を元に引っ張ってくる
-        @card = Card.find(@order.card_id)
-        # テーブル紐付けてるのでログインユーザーのクレジットカードを引っ張ってくる
         Payjp.api_key = ENV['PAYJP_PRIVATE_KEY']
-        Payjp::Charge.create(
-          amount: @order.billing_amount, #支払金額
-          customer: @card.customer_id, #顧客ID
-          currency: 'jpy', #日本円
+        begin
+          # テーブル紐付けてるのでログインユーザーのクレジットカードを引っ張ってくる
+          @card = Card.find(@order.card_id)
+          Payjp::Charge.create(
+            amount: @order.billing_amount, #支払金額
+            customer: @card.customer_id, #顧客ID
+            currency: 'jpy', #日本円
           )
+          # ↑商品の金額をamountへ、cardの顧客idをcustomerへ、currencyをjpyへ入れる
+        rescue Payjp::PayjpError => e
+          redirect_to request.referer, notice: "このカードはご利用になれません。お手数ですが、窓口までお問い合わせください。" and return
+        end
+
+        #orderレコードの保存
+        if @order.save
+          #order_itemレコードの作成
+          @TAX = 1.08    #税込価格計算用、税率8％
+          @order_items = @end_user.carts
+
+          @order_items.each do |order_item|
+            @product = Product.find(order_item.product_id)
+            @order_item = OrderItem.new
+            @order_item.order_id = @order.id
+            @order_item.product_id = order_item.product_id
+            @order_item.name = @product.name
+            @order_item.price = (@product.price_excluding * @TAX).ceil
+            @order_item.quantity = order_item.quantity
+            @order_item.production_status = 0
+            @order_item.save
+          end
+
+          #cartの中身を空にする
+          @end_user = current_end_user
+          @carts = @end_user.carts
+          @carts.destroy_all
+
+          redirect_to end_user_thanks_path
+        else
+          redirect_to request.referer, notice: '購入に失敗しました。'
+        end
+        #↑この辺はこちら側のテーブル設計どうりに色々しています
       else
       end
-    end
-
-    #cartの中身を空にする
-    @end_user = current_end_user
-    @carts = @end_user.carts
-    @carts.destroy_all
-    redirect_to end_user_thanks_path
   end
 
   def show
