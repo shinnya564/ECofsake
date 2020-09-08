@@ -1,0 +1,2 @@
+module Secret::ProducerHelper
+end

@@ -22,7 +22,7 @@
                 <li><%= link_to("登録者一覧", admins_end_users_path, { method: :get ,class: "glyphicon glyphicon-log-out"}) %></li>
                 <li><%= link_to("商品種類一覧", admins_types_path, { method: :get ,class: "glyphicon glyphicon-log-out"}) %></li>
                 <li><%= link_to("商品一覧", admins_products_path, { method: :get ,class: "glyphicon glyphicon-log-out"}) %></li>
-                <li><%= link_to("ログアウト", destroy_admin_session_path, { method: :get ,class: "glyphicon glyphicon-log-out"}) %></li>
+                <li><%= link_to("元に戻す", root_path, class: "glyphicon glyphicon-home", data: {"turbolinks" => false}) %></li>
             </ul>
           </div>
       </div>

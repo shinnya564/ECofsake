@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
 
+  namespace :secret do
+    get 'producer/show'
+  end
   namespace :admins do
     get 'admins/index'
     get 'admins/show'

@@ -25,7 +25,7 @@ class ProductsController < ApplicationController
         end
       else
       end
-    per = 9
+    per = 15
     types = Type.where(invalid_status: true)
     @products = Product.where(out_of_stock: false, type_id: types.pluck(:id)).page(params[:page]).per(per).order(id: "DESC")
     end
