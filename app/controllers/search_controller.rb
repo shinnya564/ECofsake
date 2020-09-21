@@ -4,7 +4,7 @@ class SearchController < ApplicationController
 	  	@search = Product.search(params[:search])
 	    @types = Type.where(invalid_status: true)
 
-	    @TAX = 1.08
+	    @TAX = ENV['TAX'].to_f
 	    @loop = 0
 
 	    per = 9
@@ -14,7 +14,7 @@ class SearchController < ApplicationController
 	def search_types
 	    @types = Type.where(invalid_status: true)
 
-	    @TAX = 1.08
+	    @TAX = ENV['TAX'].to_f
 	    @all_products = Product.where(type_id: params[:format])
 	    @loop = 0
 

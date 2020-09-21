@@ -36,7 +36,7 @@ class OrdersController < ApplicationController
         #orderレコードの保存
         if @order.save
           #order_itemレコードの作成
-          @TAX = 1.08    #税込価格計算用、税率8％
+          @TAX = ENV['TAX'].to_f    #税込価格計算用、税率8％
           @order_items = @end_user.carts
 
           @order_items.each do |order_item|
@@ -85,7 +85,7 @@ class OrdersController < ApplicationController
   end
 
   def order_check
-    @TAX = 1.08    #税込価格計算用、税率8％
+    @TAX = ENV['TAX'].to_f    #税込価格計算用、税率8％
     @price = 0     #商品税込価格用
     @subtotal =0   #小計計算用
     @total = 0     #金額合計計算用初期化
