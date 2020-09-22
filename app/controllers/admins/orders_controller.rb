@@ -13,7 +13,7 @@ class Admins::OrdersController < ApplicationController
   end
 
   def show
-  	@TAX = 1.08
+  	@TAX = ENV['TAX'].to_f
     @order = Order.find(params[:id])
     @items = @order.order_items
     @total_price = 0

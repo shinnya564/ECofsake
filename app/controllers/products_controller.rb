@@ -1,7 +1,7 @@
 class ProductsController < ApplicationController
 
   def index
-    @TAX = 1.08
+    @TAX = ENV['TAX'].to_f
     @all_products = Product.all
 
     @types = Type.where(invalid_status: true)
@@ -32,7 +32,7 @@ class ProductsController < ApplicationController
   end
 
   def show
-    @TAX = 1.08
+    @TAX = ENV['TAX'].to_f
     @no = 0
 
     #商品値段計算
