@@ -16,7 +16,8 @@
 	      <%= message %>
 	    <% end %>
 
-		<h2>新規クレジットカード</h2><hr>
+		<h2>新規クレジットカード</h2>※PayJPのテスト環境で実装しています。カード番号は<a href="https://pay.jp/docs/testcard">こちら</a>から<hr>
+
 
 	    <%= form_for( @card, url: { controller: 'cards', action: 'card_check'}, html:{method:'get'} ) do |f| %>
 		    <div class="col-xs-4">
