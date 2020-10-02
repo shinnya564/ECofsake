@@ -44,3 +44,5 @@ https://pay.jp/docs/testcard
 ## 設計書
 ### 機能一覧
 <https://docs.google.com/spreadsheets/d/1E1KFWwneQk18MDcBJiwL_Qt9UHGe551Vc5iHeD9HCJQ/edit#gid=0>
+### AWS設計図
+https://docs.google.com/spreadsheets/d/1Rv3fY1OIhyrJtLWk7B0snEgza_ZzQxPP9LcZ_LCn-C8/edit#gid=1937705996
