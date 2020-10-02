@@ -1,5 +1,5 @@
 # サイト名
-ECofsake
+https://user-images.githubusercontent.com/65529573/94900434-f3cd6e00-04cf-11eb-806d-d34c365311f7.jpg
 
 ## サイト概要
 お酒好きな人がお酒の知識を披露でき、カクテルを作る道具を購入できるサイトです。
