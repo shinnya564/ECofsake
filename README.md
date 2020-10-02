@@ -25,7 +25,7 @@ ECofsake![スクリーンショット 2020-10-02 16 51 12](https://user-images.g
 jsで暗号化してdbに保存します。
 支払い情報に関しては、Pay.jpのAPIで管理します。
 ※なお、今回はPF用に作成したため、テスト環境で実装し、テスト用クレジットカード情報以外は登録できないよう設定する
-https://pay.jp/docs/testcard
+テストカードURL：https://pay.jp/docs/testcard
 ![スクリーンショット 2020-10-02 16 59 19](https://user-images.githubusercontent.com/65529573/94900850-b1586100-04d0-11eb-8008-b86b49eea785.jpg)
 
 ### サイトテーマ
