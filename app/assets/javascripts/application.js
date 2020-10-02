@@ -90,7 +90,6 @@
 		});
 	});
 
-
 //secret用
 $(function() {
   $('.menu-trigger').on('click', function(event) {
