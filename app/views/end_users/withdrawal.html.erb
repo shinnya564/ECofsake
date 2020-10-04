@@ -10,10 +10,10 @@
 	</p>
 
 	<br><br>
-	<%= link_to "退会しない",end_user_path(@end_user), class: "btn btn-primary" %>
+	<%= link_to "退会しない",end_user_path(@end_user), class: "btn btn-primary", data: {"turbolinks" => false} %>
 	<br><br><br>
 
-	<%= form_for end_user_withdrawal_path, method: :patch do |f| %>
+	<%= form_for end_user_withdrawal_path, method: :patch, data: {"turbolinks" => false} do |f| %>
 		<%= f.submit "退会する", class: "btn btn-danger" %>
 	<% end %>
 </div>
