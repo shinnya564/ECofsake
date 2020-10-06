@@ -3,9 +3,9 @@
 	<div class="col-xs-3">
 		<h2>サイドメニュー</h2><hr>
 		<% if @admin.id == 1 %>
-			<%= link_to "戻る", admins_admins_path, class:"btn btn-primary" %><br><br>
+			<%= link_to "戻る", admins_admins_path, class:"btn btn-primary", data: {"turbolinks" => false} %><br><br>
 		<% else %>
-			<%= link_to "編集する", edit_admins_admin_path(@admin.id), class:"btn btn-success" %><br><br>
+			<%= link_to "編集する", edit_admins_admin_path(@admin.id), class:"btn btn-success", data: {"turbolinks" => false} %><br><br>
 		<% end %>
 	</div>
 

@@ -1,6 +1,9 @@
 
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+
 <div class="col-xs-12">
 	<h2 class="page-header">会員一覧画面</h2>
+	<%= link_to "CSV出力", admins_end_users_path(format: :csv), class: "btn btn-primary" %>
 	<%= paginate @end_users %>
 		<table class="table text-center">
 			<thead>
@@ -16,7 +19,7 @@
 				<tbody>
 					<tr>
 						<td><%= user.id %></td>
-						<td><%= link_to user.family_name + user.first_name, admins_end_user_path(user.id) %></td>
+						<td><%= link_to user.family_name + user.first_name, admins_end_user_path(user.id), data: {"turbolinks" => false} %></td>
 						<td><%= user.email %></td>
 						<td><% if user.delete_status == true %>
 									<%= "退会済み" %>
