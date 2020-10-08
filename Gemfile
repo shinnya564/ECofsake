@@ -66,6 +66,7 @@ gem 'devise'
 
 # 画像用のgem
 gem "refile", require: "refile/rails", github: 'manfe/refile'
+gem "refile-s3"
 gem "refile-mini_magick"
 
 #bootstrap
