@@ -57,6 +57,7 @@ Rails.application.routes.draw do
   namespace :admins do
     resources :admins, only: [:index, :show, :edit, :update]
     resources :orders, only: [:index]
+    get '/earnings' => 'orders#earnings'
     resources :end_users, only: [:index, :show, :edit, :update] do
       resources :orders, only: [:index, :show, :update] do
         resources :order_items, only: [:update]
