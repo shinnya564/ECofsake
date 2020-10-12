@@ -20,13 +20,28 @@ class Admins::OrdersController < ApplicationController
     @items.each do |item|
     	@total_price += item.price * item.quantity
     end
-    @total_price
   end
 
   def update
     @order = Order.find(params[:id])
     @order.update(status_params)
     redirect_to admins_end_user_order_path(@order.id)
+  end
+
+  def earnings
+    @earning_total = 0
+    @orders = Order.all
+
+    @TAX = ENV['TAX'].to_f
+
+    @orders.each do |order|
+      total_price = 0
+      items = order.order_items
+      items.each do |item|
+        total_price += item.price * item.quantity
+        @earning_total += total_price
+      end
+    end
   end
 
   private
