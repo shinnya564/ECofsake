@@ -18,6 +18,12 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+/*文字を折り返す*/
+p{
+  font-size: 1em;
+  overflow-wrap: break-word;
+}
+
 /*ページ先頭に戻る設定*/
 #back {
   position: fixed;
