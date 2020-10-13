@@ -90,11 +90,21 @@
 		});
 	});
 
-//secret用
+//ハンバーガーメニュー
 	$(function() {
 	  $('.menu-trigger').on('click', function(event) {
 	    $(this).toggleClass('active');
 	    $('#sp-menu').fadeToggle();
+	    event.preventDefault();
+	  });
+	});
+
+//ページの一番上へ戻る
+	$(function() {
+	  $('#back a').on('click',function(event){
+	    $('body, html').animate({
+	      scrollTop:0
+	    }, 800);
 	    event.preventDefault();
 	  });
 	});
