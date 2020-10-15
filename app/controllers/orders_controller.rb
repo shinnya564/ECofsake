@@ -62,8 +62,32 @@ class OrdersController < ApplicationController
         end
         #↑この辺はこちら側のテーブル設計どうりに色々しています
       else
+        if @order.save
+          #order_itemレコードの作成
+          @order_items = @end_user.carts
+
+          @order_items.each do |order_item|
+            @product = Product.find(order_item.product_id)
+            @order_item = OrderItem.new
+            @order_item.order_id = @order.id
+            @order_item.product_id = order_item.product_id
+            @order_item.name = @product.name
+            @order_item.price = @product.price_excluding
+            @order_item.quantity = order_item.quantity
+            @order_item.production_status = 0
+            @order_item.save
+          end
+
+          #cartの中身を空にする
+          @end_user = current_end_user
+          @carts = @end_user.carts
+          @carts.destroy_all
+          redirect_to end_user_thanks_path
+        else
+          redirect_to request.referer, notice: '購入に失敗しました。'
+        end
       end
-  end
+    end
 
   def show
     @end_user = current_end_user
