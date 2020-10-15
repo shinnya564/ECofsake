@@ -5,9 +5,9 @@
         <%= render 'search/search_form' %>
 
         <div class="col-xs-9">
-            <h2>検索結果</h2>
-
+            <h2>検索結果<%= @number %>件</h2>
+            <%= paginate @products %>
             <%= render 'products/product_index', products: @products %>
-
+            <%= paginate @products %>
         </div>
     </div>

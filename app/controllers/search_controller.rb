@@ -3,16 +3,22 @@ class SearchController < ApplicationController
 	def search_products
 	  	@search = Product.search(params[:search])
 	    @types = Type.where(invalid_status: true)
+	    @number = 0
 
 	    @TAX = ENV['TAX'].to_f
 	    @loop = 0
 
 	    per = 9
 	    @products = @search.where(out_of_stock: false, type_id: @types.pluck(:id)).page(params[:page]).per(per)
+
+	    @products.each do |product|
+			@number = @number + 1
+	    end
 	end
 
 	def search_types
 	    @types = Type.where(invalid_status: true)
+	    @number = 0
 
 	    @TAX = ENV['TAX'].to_f
 	    @all_products = Product.where(type_id: params[:format])
@@ -23,5 +29,9 @@ class SearchController < ApplicationController
 	    types = Type.where(invalid_status: true)
 	    per = 9
 	    @products = @all_products.where(out_of_stock: false, type_id: types.pluck(:id)).page(params[:page]).per(per)
+
+	    @products.each do |product|
+	        @number = @number + 1
+	    end
 	end
 end
