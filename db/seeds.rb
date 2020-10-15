@@ -6,12 +6,59 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+#Admin.create!(email:'admins@test.com',password:'tester')
+#EndUser.create!(email:'test@test',password:'tester',family_name:'test',first_name:'tester',kana_family_name:'テスト',kana_first_name:'テスター',postal_code:'1111111',address:'東京都テスト',tel:'00000000000',delete_status:false)
 
 Admin.create!(email:'admins@test.com',password:'tester')
-Type.create!(name: 'シェイカー', invalid_status: true)
-Product.create!( name: 'バーテンダーセット', type_id: 1, introduction: 'お家でバーテンダーになれます', price_excluding: 3000, out_of_stock: true)
-Product.create!( name: 'バーテンダーセット1', type_id: 1, introduction: 'お家でバーテンダーになれます!!!!!!!!!!!!!!!!!!!!!!!!!!!!!11111111111111111111111', price_excluding: 3000, out_of_stock: false)
-Product.create!( name: 'バーテンダーセット2', type_id: 1, introduction: 'お家でバーテンダーになれます', price_excluding: 3000, out_of_stock: false)
-Product.create!( name: 'バーテンダーセット3', type_id: 1, introduction: 'お家でバーテンダーになれます', price_excluding: 3000, out_of_stock: false)
-Product.create!( name: 'バーテンダーセット4', type_id: 1, introduction: 'お家でバーテンダーになれます', price_excluding: 3000, out_of_stock: false)
-Product.create!( name: 'バーテンダーセット3', type_id: 1, introduction: 'お家でバーテンダーになれます', price_excluding: 3000, out_of_stock: false)
+EndUser.create!(email:'test@test',password:'tester',family_name:'test',first_name:'tester',kana_family_name:'テスト',kana_first_name:'テスター',postal_code:'1111111',address:'東京都テスト',tel:'00000000000',delete_status:false)
+
+10.times do |n|
+  name1 = Faker::Job.title
+  Type.create!(name: name1,
+               invalid_status: true
+               )
+end
+
+20.times do |n|
+  name2 = Faker::Job.unique.title
+  introduction = Faker::Number.number(digits: 1000)
+  id = Random.new
+  price = Faker::Number.number(digits: 4)
+  Product.create!(name: name2,
+  			   type_id: id.rand(10)+1,
+               introduction: introduction,
+               price_excluding: price,
+               out_of_stock: false
+               )
+	20.times do |t|
+	  title = Faker::Job.unique.title
+	  name4 = Faker::Games::Pokemon.name
+	  introduction = Faker::Number.number(digits: 100)
+	  price = Faker::Number.number(digits: 4)
+	  ProductComment.create!(product_id: n + 1,
+	  			   name: name4,
+	               comment: introduction,
+	               )
+	end
+end
+
+20.times do |n|
+  title = Faker::Job.unique.title
+  name3 = Faker::Games::Pokemon.name
+  introduction = Faker::Number.number(digits: 1000)
+  BulletinBoard.create!(title: title,
+  			   name: name3,
+               body: introduction,
+               )
+
+	20.times do |t|
+	  title = Faker::Job.unique.title
+	  name4 = Faker::Games::Pokemon.name
+	  introduction = Faker::Number.number(digits: 100)
+	  price = Faker::Number.number(digits: 4)
+	  BulletinBoardComment.create!(bulletin_board_id: n + 1,
+	  			   name: name4,
+	               comment: introduction,
+	               )
+	end
+end

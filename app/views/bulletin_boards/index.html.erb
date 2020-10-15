@@ -17,9 +17,9 @@
 			<tbody>
 				<% @boards.each do |board| %>
 				<tr>
-					<td><%= link_to board.title, bulletin_board_path(board) %></td>
+					<td><%= link_to board.title, bulletin_board_path(board), data: {"turbolinks" => false} %></td>
 					<td><%= board.name %></td>
-					<td>コメント数：<%= board.bulletin_board_comments.count %></td>
+					<td><%= board.bulletin_board_comments.count %></td>
 				</tr>
 				<% end %>
 			</tbody>
