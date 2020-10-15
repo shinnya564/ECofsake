@@ -9,8 +9,20 @@
 #Admin.create!(email:'admins@test.com',password:'tester')
 #EndUser.create!(email:'test@test',password:'tester',family_name:'test',first_name:'tester',kana_family_name:'テスト',kana_first_name:'テスター',postal_code:'1111111',address:'東京都テスト',tel:'00000000000',delete_status:false)
 
-Admin.create!(email:'admins@test.com',password:'tester')
-EndUser.create!(email:'test@test',password:'tester',family_name:'test',first_name:'tester',kana_family_name:'テスト',kana_first_name:'テスター',postal_code:'1111111',address:'東京都テスト',tel:'00000000000',delete_status:false)
+Admin.create!(email:'admins@test.com',
+              password:'tester'
+              )
+
+EndUser.create!(email:'test@test',
+                password:'tester',
+                family_name:'test',
+                first_name:'tester',
+                kana_family_name:'テスト',
+                kana_first_name:'テスター',
+                postal_code:'1111111',
+                address:'東京都テスト',
+                tel:'00000000000',delete_status:false
+                )
 
 10.times do |n|
   name1 = Faker::Job.title

@@ -11,6 +11,9 @@ class EndUsersController < ApplicationController
 
   def edit
   	@end_user = EndUser.find(params[:id])
+    if @end_user.id != current_end_user.id
+      redirect_to "/end_users/#{current_end_user.id}"
+    end
   end
 
   def update
@@ -18,7 +21,7 @@ class EndUsersController < ApplicationController
     if @end_user.update(end_user_params)
       redirect_to @end_user, notice: "会員情報を更新しました"
     else #if文でエラー発生時と正常時のリンク先を枝分かれにしている。
-      render "show"
+      redirect_to request.referer, notice: "更新に失敗しました.空白があります"
     end
   end
 

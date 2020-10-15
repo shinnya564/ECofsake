@@ -7,10 +7,10 @@
         <h2>登録情報編集</h2><hr>
         <%= form_with(model:[@end_user], local: true) do |f| %>
             <div class="col-xs-4">
-                <div class="col-xs-6">
+                <div class="col-xs-6 padding_none">
                     名前
                 </div>
-                <div class="col-xs-6">
+                <div class="col-xs-6 padding_none">
                     (姓)
                 </div>
             </div>
@@ -18,9 +18,9 @@
                 <%= f.text_field  :family_name, class: 'form-control field' %>
             </div>
             <div class="col-xs-4">
-                <div class="col-xs-6">
+                <div class="col-xs-6 padding_none">
                 </div>
-                <div class="col-xs-6">
+                <div class="col-xs-6 padding_none">
                     (名)
                 </div>
             </div>
@@ -28,10 +28,10 @@
                 <%= f.text_field  :first_name, class: 'form-control' %>
             </div>
             <div class="col-xs-4">
-                <div class="col-xs-6">
+                <div class="col-xs-6 padding_none">
                     フリガナ
                 </div>
-                <div class="col-xs-6">
+                <div class="col-xs-6 padding_none">
                     (セイ)
                 </div>
             </div>
@@ -39,9 +39,9 @@
                 <%= f.text_field  :kana_family_name, class: 'form-control' %>
             </div>
             <div class="col-xs-4">
-                <div class="col-xs-6">
+                <div class="col-xs-6 padding_none">
                 </div>
-                <div class="col-xs-6">
+                <div class="col-xs-6 padding_none">
                     (メイ)
                 </div>
             </div>
@@ -50,7 +50,7 @@
             </div>
 
             <div class="col-xs-4">
-                <div class="col-xs-9">
+                <div class="col-xs-9 padding_none">
                     メールアドレス
                 </div>
             </div>
@@ -60,7 +60,7 @@
             </div>
 
             <div class="col-xs-4">
-                <div class="col-xs-9">
+                <div class="col-xs-9 padding_none">
                     郵便番号(ハイフンなし)
                 </div>
             </div>
@@ -69,7 +69,7 @@
             </div>
 
             <div class="col-xs-4">
-                <div class="col-xs-9">
+                <div class="col-xs-9 padding_none">
                     住所
                 </div>
             </div>
@@ -78,7 +78,7 @@
             </div>
 
             <div class="col-xs-4">
-                <div class="col-xs-9">
+                <div class="col-xs-9 padding_none">
                     電話番号
                 </div>
             </div>
