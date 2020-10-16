@@ -1,11 +1,12 @@
 
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
 
-<div class="col-xs-12 container">
-    <h2><%= @type %>商品全<%= @number %>件</h2>
-    <%= paginate @products %>
-    <%= render 'products/product_index', products: @products %>
-    <%= paginate @products %>
+<div class="container">
+	<div class="col-xs-12">
+	    <h2><%= @type %>商品全<%= @number %>件</h2>
+	    <%= paginate @products %>
+	    <%= render 'products/product_index', products: @products %>
+	    <%= paginate @products %>
+	</div>
+	<%= render 'search/search_form' %>
 </div>
-
-<%= render 'search/search_form' %>
