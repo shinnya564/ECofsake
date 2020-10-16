@@ -2,76 +2,78 @@
 <div class="col-xs-12">
 	<h2 class="page-header">注文履歴詳細画面</h2>
 
-	<div class="col-xs-8 filed">
-		<div class="col-xs-4">
+	<div class="col-xs-12 filed padding_none">
+		<div class="col-xs-4 padding_none">
 		    <h4>購入者</h4>
 		</div>
 		<div class="col-xs-8">
 		    <h4><%= link_to @order.end_user.family_name+@order.end_user.first_name, admins_end_user_path(@order.end_user_id)%></h4>
 		</div>
-		<div class="col-xs-4">
+		<div class="col-xs-4 padding_none">
 		    <h4>配送先</h4>
 		</div>
 		<div class="col-xs-8">
 		    <h4><%= @order.shipping_address %></h4>
 		</div>
-		<div class="col-xs-4">
+		<div class="col-xs-4 padding_none">
 		    <h4>支払い方法</h4>
 		</div>
 		<div class="col-xs-8">
 		    <h4><%= @order.payment_flg %></h4>
 		</div>
-		<div class="col-xs-4">
+		<div class="col-xs-4 padding_none">
 		    <h4>注文ステータス</h4>
 		</div>
-		<div class="col-xs-4">
+		<div class="col-xs-3">
 		    <h4><%= @order.status_flg %></h4>
 		</div>
-		<div class="col-xs-4">
+		<div class="col-xs-5 padding_none">
 		   	<%= form_for @order, url:admins_end_user_order_path(@order.id) do |f| %>
-		        <h4>
+		        <div class="col-xs-7 padding_none">
 		        	<%= f.select :status_flg, Order.status_flgs.keys.to_a %>
+		        </div>
+		        <div class="col-xs-5 padding_none">
 		        	<%= f.submit "更新", class:"btn btn-success" %>
-		        </h4>
+		        </div>
 	        <% end %>
 		</div>
 	</div>
 
-	<div class="col-xs-4 filed">
-	    <h4 class="col-xs-6 text-right">商品合計</h4>
-	    <h4 class="col-xs-6 text-left">¥ <%= @total_price.to_s(:delimited) %></h4>
-	    <h4 class="col-xs-6 text-right">送料</h4>
-	    <h4 class="col-xs-6 text-left">¥ <%= @order.charriage.to_s(:delimited) %></h4>
-	    <h4 class="col-xs-6 text-right">請求金額合計</h4>
-	    <h4 class="col-xs-6 text-left">¥ <%= @order.billing_amount.to_s(:delimited) %></h4>
+	<div class="col-xs-12 filed padding_none">
+	    <h4 class="col-xs-4 padding_none">商品合計</h4>
+	    <h4 class="col-xs-8 text-left">¥ <%= @total_price.to_s(:delimited) %></h4>
+	    <h4 class="col-xs-4 padding_none">送料</h4>
+	    <h4 class="col-xs-8 text-left">¥ <%= @order.charriage.to_s(:delimited) %></h4>
+	    <h4 class="col-xs-4 padding_none">請求金額合計</h4>
+	    <h4 class="col-xs-8 text-left">¥ <%= @order.billing_amount.to_s(:delimited) %></h4>
 	</div>
 
 	<div class="text-center">
 	    <table class="table table-striped table-inverse">
 	        <thead>
 	            <tr>
-	                <th class="col-xs-3 text-center">商品名</th>
-	                <th class="col-xs-1 text-center">単価</th>
+	                <th class="col-xs-3 text-center">商品名<br>単価</th>
 	                <th class="col-xs-1 text-center">数量</th>
 	                <th class="col-xs-2 text-center">小計</th>
-	                <th class="col-xs-2 text-center">製作ステータス</th>
+	                <th class="col-xs-2 text-center">製作<br>状況</th>
 	                <th class="col-xs-3 text-center"></th>
 	            </tr>
 	        </thead>
 	        <tbody>
 	            <% @items.each do |item| %>
 	            <tr>
-	                <td><%= item.name %></td>
-	                <td>¥ <%= item.price.to_s(:delimited) %></td>
+	                <td>
+	                	<%= item.name %><br>
+	                	¥ <%= item.price.to_s(:delimited) %>
+	                </td>
 	                <td><%= item.quantity %></td>
 	                <td>¥ <%= (item.price*item.quantity).to_s(:delimited) %></td>
 	                <td><%= item.production_status %></td>
-	                <td>
 	                	<%= form_for [@order,item], url:admins_end_user_order_order_item_path(@order.end_user_id,@order.id,item.id) do |f| %>
-	                        <%= f.select :production_status, OrderItem.production_statuses.keys.to_a %>
-	                        <%= f.submit "更新", class:"btn btn-success" %>
+	                        <th><%= f.select :production_status, OrderItem.production_statuses.keys.to_a %></th>
+	                        <th><%= f.submit "更新", class:"btn btn-success" %></th>
 	                    <% end %>
-	                </td>
+	                </th>
 	            </tr>
 	            <% end %>
 	        </tbody>
