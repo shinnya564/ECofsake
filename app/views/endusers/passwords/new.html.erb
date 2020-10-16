@@ -5,19 +5,24 @@
 	<p>メールアドレスを入力してください、仮のパスワードを送信します</p>
 
 	<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
-	  <%= render "devise/shared/error_messages", resource: resource %>
-
-	  <div class="col-xs-3">
-	    <%= f.label :email %><br />
+	  <div class = "col-xs-12">
+		<%= render "devise/shared/error_messages", resource: resource %>
 	  </div>
-	  <div class="col-xs-9 field">
-	    <%= f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control' %>
+	  <div class = "col-xs-12 padding_none">
+		  <div class="col-xs-4 padding_none">
+		    <%= f.label :email %><br />
+		  </div>
+		  <div class="col-xs-8 field">
+		    <%= f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control' %>
+		  </div>
 	  </div>
-	  <div class="col-xs-3">
-	  </div>
-	  <div class="col-xs-9 field">
-	    <%= f.submit "アドレスを送る",class: "btn btn-primary" %>
-	  </div>
+	  <div class = "col-xs-12 padding_none">
+		  <div class="col-xs-4 padding_none">
+		  </div>
+		  <div class="col-xs-8 field">
+		    <%= f.submit "アドレスを送る",class: "btn btn-primary" %>
+		  </div>
+		</div>
 	<% end %>
 	<%= render "endusers/shared/links" %>
 </div>

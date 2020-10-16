@@ -81,14 +81,25 @@ p{
 	text-align: center;
 }
 
-.title{
-  font-size: 30px;
-  margin-top: 5px;
-}
-
 .menu li{
   width: 250px;
   padding-right: 30px;
+}
+
+.mymenu{
+  margin-top: 0px;
+  background-color: #fff;
+  text-align: center;
+}
+
+.mymenu li{
+  width: 250px;
+  padding-right: 30px;
+}
+
+.title{
+  font-size: 30px;
+  margin-top: 5px;
 }
 
 /*header設定*/
@@ -240,8 +251,6 @@ footer{
   }
   .menu{
     margin-top: 20px;
-    background-color: #000;
-    text-align: center;
   }
 
  }

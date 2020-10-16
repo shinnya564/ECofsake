@@ -12,7 +12,7 @@
     </div>
   <% end %>
   <%= form_for @inquiry, url: { controller: 'inquiries', action: 'confirm'}, html:{method:'get'} do |f| %>
-    <div class="col-xs-3">
+    <div class="col-xs-3 padding_none">
       名前<span class="text-danger">（必須）</span>
     </div>
     <div class="col-xs-9 field">
@@ -22,8 +22,8 @@
         <%= f.text_field :name, class: "form-control" %>
       <% end %>
     </div>
-    <div class="col-xs-3">
-        メールアドレス<span class="text-danger">（必須）</span>
+    <div class="col-xs-3 padding_none">
+        Email<span class="text-danger">（必須）</span>
     </div>
     <div class="col-xs-9 field">
       <% if end_user_signed_in? %>
@@ -32,14 +32,14 @@
           <%= f.text_field :email, class: "form-control" %>
       <% end %>
     </div>
-    <div class="col-xs-3">
-        お問い合わせ内容
+    <div class="col-xs-3 padding_none">
+        内容
     </div>
     <div class="col-xs-9 field">
       <%= f.text_area :message, class: "form-control" %>
     </div>
 
-    <div class="col-xs-3">
+    <div class="col-xs-3 padding_none">
     </div>
     <div class="col-xs-9 field">
       <%= f.submit '確認', class: 'btn btn-primary' %>

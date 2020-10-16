@@ -1,4 +1,5 @@
 
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
 <script type="text/javascript" src="https://js.pay.jp/v1/"></script>
 
 <div class='col-xs-12'>
@@ -36,19 +37,19 @@
 		</div>
 		<br><%= radio_button_tag :address_selection, 2 %>新しいお届け先<br>
 
-		<div class='col-xs-3'>
+		<div class='col-xs-3 padding_none'>
 			郵便番号(ハイフンなし)
 		</div>
 		<div class=' col-xs-9 field'>
 			<%= f.text_field :postal_code, class: 'form-control' %>
 		</div>
-		<div class='col-xs-3'>
+		<div class='col-xs-3 padding_none'>
 			住所
 		</div>
 		<div class=' col-xs-9 field'>
 			<%= f.text_field :shipping_address, class: 'form-control' %>
 		</div>
-		<div class='col-xs-3'>
+		<div class='col-xs-3 padding_none'>
 			宛名
 		</div>
 		<div class=' col-xs-9 field'>
