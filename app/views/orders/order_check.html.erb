@@ -1,12 +1,12 @@
 
-
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
 <script type="text/javascript" src="https://js.pay.jp/v1/"></script>
 
 <div class="col-xs-12">
 	<h1 class="page-header">注文情報確認</h1>
 
 	<%= form_with(model:[@end_user,@order], local: true) do |f| %>
-		<div class="col-xs-8">
+		<div class="col-xs-12">
 			<table class="table table-inverse">
 				<thead>
 					<tr>
@@ -34,7 +34,7 @@
 			</table>
 		</div>
 
-		<div class="col-xs-4">
+		<div class="col-xs-12">
 			<table class="table table-hover table-inverse">
 				<thead>
 					<tr>
@@ -57,10 +57,10 @@
 
 		<div class="col-xs-12">
 			<h2 class="page-header">お支払い方法</h2>
-			<h3><%= @payment %></h3><br>
+			<h3><%= @payment %></h3>
 			<%= f.hidden_field :payment_flg , :value => @payment_flg %>
 			<%if @payment_flg = "クレジットカード" %>
-				<h3><%= @secret %></h3><br>
+				<h3><%= @secret %></h3>
 				<%= f.hidden_field :card_id, :value => @payment_card %>
 			<% else %>
 			<% end %>
