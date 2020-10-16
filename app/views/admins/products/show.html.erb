@@ -40,7 +40,9 @@
 				<h3><%= "販売中止" %></h3>
 			<% end %><br><br>
 		</div>
-    	<%= link_to "編集する", edit_admins_product_path, class: "btn btn-success", data: {"turbolinks" => false} %><br><br>
-    	<%= link_to "戻る",  admins_products_path, class: "btn btn-primary" %>
+		<div class="col-xs-12 padding_none">
+    		<%= link_to "編集する", edit_admins_product_path, class: "btn btn-success", data: {"turbolinks" => false} %><br><br>
+    		<%= link_to "戻る",  admins_products_path, class: "btn btn-primary" %>
+	    </div>
 	</div>
 </div>
