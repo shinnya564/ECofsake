@@ -3,7 +3,7 @@
 
 <div class="col-xs-12">
 	<h2>会員情報編集</h2><hr>
-	    <%= form_for @end_user, url:admins_end_user_path(@end_user) do |f| %>
+	<%= form_for @end_user, url:admins_end_user_path(@end_user) do |f| %>
 		<div class="col-xs-3 padding_none">
 		    <h4>会員ID</h4>
 		</div>
@@ -31,7 +31,7 @@
 		    <%= f.text_field :postal_code, class: 'form-control' %>
 		</div>
 		<div class="col-xs-3 padding_none">
-	        <h4>住所</h4>
+		    <h4>住所</h4>
 		</div>
 		<div class="col-xs-9 field">
 		    <%= f.text_field :address, class: 'form-control' %>
@@ -61,7 +61,6 @@
 		</div>
 		<div class="col-xs-9 field">
 		    <%= f.submit "変更を保存する", class:"btn btn-primary"%>
-	    </div>
-	    <% end %>
-	</div>
+		</div>
+	<% end %>
 </div>
