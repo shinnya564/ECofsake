@@ -4,7 +4,6 @@ class InquiriesController < ApplicationController
   	@inquiry = Inquiry.new
     if end_user_signed_in?
       @end_user = current_end_user
-    else
     end
   end
 
@@ -17,7 +16,6 @@ class InquiriesController < ApplicationController
     else
       if end_user_signed_in?
         @end_user = current_end_user
-      else
       end
       # NG。入力画面を再表示
       render :action => 'new'
