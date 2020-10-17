@@ -4,6 +4,10 @@ class InquiryMailer < ApplicationMailer
 
   	def received_email(inquiry)
     	@inquiry = inquiry
-    	mail to: inquiry.email,:subject => 'お問い合わせを承りました'
+    	mail(
+    			to: inquiry.email,
+				to: 'heartburn.515@gmail.com',
+    			subject: 'お問い合わせがありました'
+    		)
   	end
 end
