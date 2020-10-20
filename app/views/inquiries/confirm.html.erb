@@ -1,32 +1,34 @@
 
-<div class="col-xs-12">
-  <h1>お問い合わせ</h1><hr>
-  <%= form_for @inquiry, url: { controller: 'inquiries', action: 'thanks'}, html:{method:'get'} do |f| %>
-    <div class="col-xs-3 padding_none">
-      名前
-    </div>
-    <div class="col-xs-9 field">
-      <%= f.hidden_field :name %>
-      <%= @inquiry.name %>
-    </div>
-    <div class="col-xs-3 padding_none">
-      Email
-    </div>
-    <div class="col-xs-9 field">
-      <%= f.hidden_field :email %>
-      <%= @inquiry.email %>
-    </div>
-    <div class="col-xs-3 padding_none">
-      内容
-    </div>
-    <div class="col-xs-9 field">
-      <%= f.hidden_field :message %>
-      <%= simple_format(@inquiry.message) %>
-    </div>
-    <div class="col-xs-3 padding_none">
-    </div>
-    <div class="col-xs-9 field">
-      <%= f.submit '送信', :class => 'btn btn-primary' %>
-    </div>
-  <% end %>
+<div class="container padding_none">
+  <div class="col-xs-12">
+    <h1>お問い合わせ</h1><hr>
+    <%= form_for @inquiry, url: { controller: 'inquiries', action: 'thanks'}, html:{method:'get'} do |f| %>
+      <div class="col-xs-3 padding_none">
+        名前
+      </div>
+      <div class="col-xs-9 field">
+        <%= f.hidden_field :name %>
+        <%= @inquiry.name %>
+      </div>
+      <div class="col-xs-3 padding_none">
+        Email
+      </div>
+      <div class="col-xs-9 field">
+        <%= f.hidden_field :email %>
+        <%= @inquiry.email %>
+      </div>
+      <div class="col-xs-3 padding_none">
+        内容
+      </div>
+      <div class="col-xs-9 field">
+        <%= f.hidden_field :message %>
+        <%= simple_format(@inquiry.message) %>
+      </div>
+      <div class="col-xs-3 padding_none">
+      </div>
+      <div class="col-xs-9 field">
+        <%= f.submit '送信', :class => 'btn btn-primary' %>
+      </div>
+    <% end %>
+  </div>
 </div>

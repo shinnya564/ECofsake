@@ -7,47 +7,47 @@
 			<%= attachment_image_tag(@product, :image, size: "300x300", fallback: "no_image.jpg", id:"img1")%>
 			<br><br>
 			<%= f.attachment_field :image, id:"myfile" %><br>
-			<div class="col-xs-12">
-				<div class="col-xs-4">
+			<div class="col-xs-12 padding_none">
+				<div class="col-xs-4 padding_none">
 					<%= f.label :商品名 %>
 				</div>
-				<div class="col-xs-8">
+				<div class="col-xs-8 padding_none">
 					<%= f.text_field :name, class: 'form-control' %><br><br>
 				</div>
 			</div>
 
-			<div class="col-xs-12">
-				<div class="col-xs-4">
+			<div class="col-xs-12 padding_none">
+				<div class="col-xs-4 padding_none">
 					<%= f.label :商品説明 %>
 				</div>
-				<div class="col-xs-8 filed">
+				<div class="col-xs-8 filed padding_none">
 					<%= f.text_area :introduction, class: 'form-control' %><br><br>
 				</div>
 			</div>
 
-			<div class="col-xs-12">
-				<div class="col-xs-4">
+			<div class="col-xs-12 padding_none">
+				<div class="col-xs-4 padding_none">
 					<%= f.label :種類 %>
 				</div>
-				<div class="col-xs-8 filed">
+				<div class="col-xs-8 filed padding_none">
 					<%= f.collection_select :type_id, Type.all, :id, :name, class: 'form-control' %><br><br>
 				</div>
 			</div>
 
-			<div class="col-xs-12">
-				<div class="col-xs-4">
+			<div class="col-xs-12 padding_none">
+				<div class="col-xs-4 padding_none">
 					<%= f.label :税抜き価格 %>
 				</div>
-				<div class="col-xs-8">
+				<div class="col-xs-8 padding_none">
 					<%= f.text_field :price_excluding, class: 'form-control' %><br><br>
 				</div>
 			</div>
 
-			<div class="col-xs-12">
-				<div class="col-xs-4">
+			<div class="col-xs-12 padding_none">
+				<div class="col-xs-4 padding_none">
 					<%= f.label :販売ステータス %>
 				</div>
-				<div class="col-xs-8">
+				<div class="col-xs-8 padding_none">
 					<%= f.radio_button :out_of_stock, false %>
 					<%= f.label :out_of_stock, '販売中', value: false %>
 					<%= f.radio_button :out_of_stock, true %>
@@ -55,7 +55,7 @@
 				</div>
 			</div>
 
-		<div class="col-xs-12">
+		<div class="col-xs-12 padding_none">
 			<%= f.submit "変更を保存", class: "btn btn-primary" %>
 		</div>
 	<% end %>

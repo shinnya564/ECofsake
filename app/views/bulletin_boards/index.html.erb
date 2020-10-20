@@ -6,67 +6,67 @@
 	        <div class="main2"></div>
 	</div>
 
+	<div class="container padding_none">
+		<div class="col-xs-12">
+			<h2 class="">掲示板一覧</h2><hr>
+			<!--BulletinBoards一覧 -->
+			<table class="table table-hover table-inverse">
+				<thead>
+					<tr>
+						<th>タイトル</th>
+						<th>投稿者</th>
+						<th>コメント数</th>
+					</tr>
+				</thead>
 
-	<div class="col-xs-12">
-		<h2 class="">掲示板一覧</h2><hr>
-		<!--BulletinBoards一覧 -->
-		<table class="table table-hover table-inverse">
-			<thead>
-				<tr>
-					<th>タイトル</th>
-					<th>投稿者</th>
-					<th>コメント数</th>
-					<th colspan="1"></th>
-				</tr>
-			</thead>
+				<tbody>
+					<% @boards.each do |board| %>
+					<tr>
+						<td><%= link_to board.title, bulletin_board_path(board), data: {"turbolinks" => false} %></td>
+						<td><%= board.name %></td>
+						<td><%= board.bulletin_board_comments.count %></td>
+					</tr>
+					<% end %>
+				</tbody>
+			</table>
+			<!--BulletinBoard一覧 -->
+		</div>
 
-			<tbody>
-				<% @boards.each do |board| %>
-				<tr>
-					<td><%= link_to board.title, bulletin_board_path(board), data: {"turbolinks" => false} %></td>
-					<td><%= board.name %></td>
-					<td><%= board.bulletin_board_comments.count %></td>
-				</tr>
-				<% end %>
-			</tbody>
-		</table>
-		<!--BulletinBoard一覧 -->
-	</div>
+	    <% if @board.errors.any? %>
+	    	<p><%= @board.errors.count %> errors prohibited this book from being saved:</p>
+	    	<ul>
+	        	<% @board.errors.full_messages.each do |message| %>
+	        		<li><%= message %></li>
+	          	<% end %>
+	        </ul>
+	    <% end %>
 
-    <% if @board.errors.any? %>
-    	<p><%= @board.errors.count %> errors prohibited this book from being saved:</p>
-    	<ul>
-        	<% @board.errors.full_messages.each do |message| %>
-        		<li><%= message %></li>
-          	<% end %>
-        </ul>
-    <% end %>
-
-	<div class="col-xs-12">
-    	<h3 class="page-header">新規投稿</h3>
-		<%= form_for(@board) do |f| %>
-			<div class="col-xs-3 padding_none">
-				<%= f.label "タイトル" %>
-			</div>
-			<div class="col-xs-9 field">
-				<%= f.text_field :title, class: 'form-control' %>
-			</div>
-			<div class="col-xs-3 padding_none">
-				<%= f.label "投稿者名" %>
-			</div>
-			<div class="col-xs-9 field">
-				<%= f.text_field :name, class: 'form-control col-xs-6 field' %>
-			</div>
-			<div class="col-xs-3 padding_none">
-				<%= f.label "内容" %>
-			</div>
-			<div class="col-xs-9 field">
-				<%= f.text_area :body, class: 'form-control col-xs-6 field' %>
-			</div>
-			<div class="col-xs-3 padding_none">
-			</div>
-			<div class="col-xs-9 field">
-				<%= f.submit "新規作成", class: "btn btn-primary field" %>
-			</div>
-		<% end %>
+		<div class="col-xs-12">
+	    	<h3 class="page-header">新規投稿</h3>
+			<%= form_for(@board) do |f| %>
+				<div class="col-xs-3 padding_none">
+					<%= f.label "タイトル" %>
+				</div>
+				<div class="col-xs-9 field">
+					<%= f.text_field :title, class: 'form-control' %>
+				</div>
+				<div class="col-xs-3 padding_none">
+					<%= f.label "投稿者名" %>
+				</div>
+				<div class="col-xs-9 field">
+					<%= f.text_field :name, class: 'form-control col-xs-6 field' %>
+				</div>
+				<div class="col-xs-3 padding_none">
+					<%= f.label "内容" %>
+				</div>
+				<div class="col-xs-9 field">
+					<%= f.text_area :body, class: 'form-control col-xs-6 field' %>
+				</div>
+				<div class="col-xs-3 padding_none">
+				</div>
+				<div class="col-xs-9 field">
+					<%= f.submit "新規作成", class: "btn btn-primary field" %>
+				</div>
+			<% end %>
+		</div>
 	</div>
