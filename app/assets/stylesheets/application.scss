@@ -17,6 +17,11 @@
 /*bootstrap導入*/
 @import "bootstrap-sprockets";
 @import "bootstrap";
+@import url('https://fonts.googleapis.com/css?family=M+PLUS+Rounded+1c');
+
+body,li{
+    font-family: 'M PLUS Rounded 1c', sans-serif;
+}
 
 .padding_none{
   padding: 0px;
