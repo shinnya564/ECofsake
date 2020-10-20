@@ -1,7 +1,7 @@
 
 require 'rails_helper'
 
-RSpec.describe 'EndUserModelTest', type: :model do
+RSpec.describe 'EndUserモデルのテスト', type: :model do
 
   before do
     @end_user = build(:end_user)
