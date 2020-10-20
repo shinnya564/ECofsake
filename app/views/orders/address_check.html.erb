@@ -1,59 +1,61 @@
 
-<script type="text/javascript" src="https://js.pay.jp/v1/"></script>
+<div class="container padding_none">
+	<script type="text/javascript" src="https://js.pay.jp/v1/"></script>
 
-<div class='col-xs-12'>
-	<h2 class="page-header">注文情報</h2>
+	<div class='col-xs-12'>
+		<h2 class="page-header">注文情報</h2>
 
-	<%= form_for(@order, url: { controller: 'orders', action: 'order_check'}, html:{method:'get'} ) do |f| %>
-		<h3>支払い方法</h3>
-		<%= f.radio_button :payment_flg, 0, id: "payment_card" %>クレジットカード<br>
-		<div class='col-xs-3'>
-			<p>使用するカード：</p>
-		</div>
-		<div class='col-xs-9'>
-			<%= collection_select(:card, :card_id, @cards, :id, :cards_last4, {:include_blank => true }, class: 'form-control field') %>
-		</div>
-		<div class='col-xs-3'>
-		</div>
-		<div class='col-xs-9'>
-			<%= link_to "新しくカードを登録する", new_end_user_card_path(@end_user), class: "btn btn-success field" %><br><br>
-		</div>
-		<%= f.radio_button :payment_flg, 1 %>代引支払<br><br>
+		<%= form_for(@order, url: { controller: 'orders', action: 'order_check'}, html:{method:'get'} ) do |f| %>
+			<h3>支払い方法</h3>
+			<%= f.radio_button :payment_flg, 0, id: "payment_card" %>クレジットカード<br>
+			<div class='col-xs-3'>
+				<p>使用するカード：</p>
+			</div>
+			<div class='col-xs-9'>
+				<%= collection_select(:card, :card_id, @cards, :id, :cards_last4, {:include_blank => true }, class: 'form-control field') %>
+			</div>
+			<div class='col-xs-3'>
+			</div>
+			<div class='col-xs-9'>
+				<%= link_to "新しくカードを登録する", new_end_user_card_path(@end_user), class: "btn btn-success field" %><br><br>
+			</div>
+			<%= f.radio_button :payment_flg, 1 %>代引支払<br><br>
 
-		<h3>お届け先</h3>
-		<%= radio_button_tag :address_selection, 0 %>ご自身の住所<br>
-		<div class='col-xs-12'>
-			<%= @end_user.postal_code %>
-			<%= @end_user.address %>
-			<%= @end_user.family_name %>
-			<%= @end_user.first_name %>
-		</div><br>
+			<h3>お届け先</h3>
+			<%= radio_button_tag :address_selection, 0 %>ご自身の住所<br>
+			<div class='col-xs-12'>
+				<%= @end_user.postal_code %>
+				<%= @end_user.address %>
+				<%= @end_user.family_name %>
+				<%= @end_user.first_name %>
+			</div><br>
 
-		<br><%= radio_button_tag :address_selection, 1 %>登録済住所から選択<br>
+			<br><%= radio_button_tag :address_selection, 1 %>登録済住所から選択<br>
 
-		<div class='col-xs-12'>
-			<%= collection_select(:address, :address_id, @addresses, :id, :full_address, {:include_blank => true }, class: 'form-control field') %><br>
-		</div>
-		<br><%= radio_button_tag :address_selection, 2 %>新しいお届け先<br>
+			<div class='col-xs-12'>
+				<%= collection_select(:address, :address_id, @addresses, :id, :full_address, {:include_blank => true }, class: 'form-control field') %><br>
+			</div>
+			<br><%= radio_button_tag :address_selection, 2 %>新しいお届け先<br>
 
-		<div class='col-xs-3 padding_none'>
-			郵便番号(ハイフンなし)
-		</div>
-		<div class=' col-xs-9 field'>
-			<%= f.text_field :postal_code, class: 'form-control' %>
-		</div>
-		<div class='col-xs-3 padding_none'>
-			住所
-		</div>
-		<div class=' col-xs-9 field'>
-			<%= f.text_field :shipping_address, class: 'form-control' %>
-		</div>
-		<div class='col-xs-3 padding_none'>
-			宛名
-		</div>
-		<div class=' col-xs-9 field'>
-			<%= f.text_field :shipping_name, class: 'form-control' %>
-		</div>
-		<%= f.submit "注文内容確認", class: "btn btn-primary btn-lg" %>
-	<% end %>
+			<div class='col-xs-3 padding_none'>
+				郵便番号(ハイフンなし)
+			</div>
+			<div class=' col-xs-9 field'>
+				<%= f.text_field :postal_code, class: 'form-control' %>
+			</div>
+			<div class='col-xs-3 padding_none'>
+				住所
+			</div>
+			<div class=' col-xs-9 field'>
+				<%= f.text_field :shipping_address, class: 'form-control' %>
+			</div>
+			<div class='col-xs-3 padding_none'>
+				宛名
+			</div>
+			<div class=' col-xs-9 field'>
+				<%= f.text_field :shipping_name, class: 'form-control' %>
+			</div>
+			<%= f.submit "注文内容確認", class: "btn btn-primary btn-lg" %>
+		<% end %>
+	</div>
 </div>
