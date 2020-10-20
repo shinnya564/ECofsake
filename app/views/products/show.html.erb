@@ -37,9 +37,7 @@
 	<div class="col-xs-12">
 		<hr>
 	</div>
-	<%= link_to (@product) do %>
-		<%= attachment_image_tag(@product, :image, size: "300x300", fallback: "no_image.jpg") %>
-	<% end %>
+	<%= attachment_image_tag(@product, :image, size: "300x300", fallback: "no_image.jpg") %>
 	<table class="table">
 		<tr>
 			<th>
