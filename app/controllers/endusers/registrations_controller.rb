@@ -38,6 +38,14 @@ class Endusers::RegistrationsController < Devise::RegistrationsController
   #   super
   # end
 
+  before_action :check_guest, only: :destroy
+
+  def check_guest
+    if resource.email == 'guest@example.com'
+      redirect_to root_path, alert: 'ゲストユーザーは削除できません。'
+    end
+  end
+
   # protected
 
   # If you have extra params to permit, append them to the sanitizer.

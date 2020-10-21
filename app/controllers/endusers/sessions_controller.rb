@@ -21,6 +21,12 @@ class Endusers::SessionsController < Devise::SessionsController
       redirect_to root_path
    end
 
+  def new_guest
+    user = EndUser.guest
+    sign_in user
+    redirect_to root_path, notice: 'ゲストユーザーとしてログインしました。'
+  end
+
   # protected
 
   # If you have extra params to permit, append them to the sanitizer.

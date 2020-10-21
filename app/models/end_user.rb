@@ -17,4 +17,20 @@ class EndUser < ApplicationRecord
 	validates :postal_code, presence: true#, presence: { message: "郵便番号が空白です"}
 	validates :address, presence: true#, presence: { message: "住所が空白です"}
 	validates :tel, presence: true#, presence: { message: "電話番号が空白です"}
+
+	def self.guest
+	    find_or_create_by!(email: 'guest@example.com',
+			                family_name:'ゲスト',
+			                first_name:'ユーザー',
+			                kana_family_name:'ゲスト',
+			                kana_first_name:'ユーザー',
+			                postal_code:'1111111',
+			                address:'東京都テスト',
+			                tel:'00000000000',
+			                delete_status:false
+	    	) do |user|
+	      user.password = SecureRandom.urlsafe_base64
+	      # user.confirmed_at = Time.now  # Confirmable を使用している場合は必要
+	    end
+	end
 end

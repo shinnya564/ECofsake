@@ -25,7 +25,8 @@ EndUser.create!(
                 kana_first_name:'テスター',
                 postal_code:'1111111',
                 address:'東京都テスト',
-                tel:'00000000000',delete_status:false
+                tel:'00000000000',
+                delete_status:false
                 )
 
 10.times do |n|
