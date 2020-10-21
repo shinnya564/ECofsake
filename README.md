@@ -8,7 +8,7 @@
 https://docs.google.com/spreadsheets/d/1Rv3fY1OIhyrJtLWk7B0snEgza_ZzQxPP9LcZ_LCn-C8/edit#gid=1937705996
 
 ## 使用した技術
-###・Gem
+### ・Gem
 devise,refile,refile-s3,refile-mini_magick,bootstrap-sass,jquery-rails,kaminari',pry-byebug,dotenv-rails,payjp,rspec-rails,capybara,factory_bot_rails,faker,kaminari
 
 ### ・API
