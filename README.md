@@ -1,6 +1,25 @@
 # サイト名
 ECofsake https://ecofsake.com ![スクリーンショット 2020-10-02 16 51 12](https://user-images.githubusercontent.com/65529573/94900434-f3cd6e00-04cf-11eb-806d-d34c365311f7.jpg)
 
+## 設計書
+### 機能一覧
+<https://docs.google.com/spreadsheets/d/1E1KFWwneQk18MDcBJiwL_Qt9UHGe551Vc5iHeD9HCJQ/edit#gid=0>
+### AWS設計図
+https://docs.google.com/spreadsheets/d/1Rv3fY1OIhyrJtLWk7B0snEgza_ZzQxPP9LcZ_LCn-C8/edit#gid=1937705996
+
+## 使用した技術
+###・Gem
+devise,refile,refile-s3,refile-mini_magick,bootstrap-sass,jquery-rails,kaminari',pry-byebug,dotenv-rails,payjp,rspec-rails,capybara,factory_bot_rails,faker,kaminari
+
+###・API
+Pay.jp,googlemap
+
+###・AWS
+EC2,RDS,IAM,CloudWatch,VPC,Route 53,S3,ALB
+
+###・その他
+google search console,google analytics
+
 ## サイト概要
 お酒好きな人がお酒の知識を披露でき、カクテルを作る道具を購入できるサイトです。Google Search Console登録済のため検索ができます。
 昨今、対面型の店舗経営が難しい印象を持ったため、ネット通販が簡単に始められたらいいなと思い、ECサイトを作成してみました。
@@ -26,22 +45,3 @@ ECofsake https://ecofsake.com ![スクリーンショット 2020-10-02 16 51 12]
 ### 主な利用シーン
 ・お酒仲間を作りたい時
 ・お酒を自分で作ってみたい時
-
-## 設計書
-### 機能一覧
-<https://docs.google.com/spreadsheets/d/1E1KFWwneQk18MDcBJiwL_Qt9UHGe551Vc5iHeD9HCJQ/edit#gid=0>
-### AWS設計図
-https://docs.google.com/spreadsheets/d/1Rv3fY1OIhyrJtLWk7B0snEgza_ZzQxPP9LcZ_LCn-C8/edit#gid=1937705996
-
-### テクノロジー
-・Gem
-devise,refile,refile-s3,refile-mini_magick,bootstrap-sass,jquery-rails,kaminari',pry-byebug,dotenv-rails,payjp,rspec-rails,capybara,factory_bot_rails,faker,kaminari
-
-・API
-Pay.jp,googlemap
-
-・AWS
-EC2,RDS,IAM,CloudWatch,VPC,Route 53,S3,ALB
-
-・その他
-google search console,google analytics
