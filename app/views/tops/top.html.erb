@@ -39,8 +39,9 @@
       gtag('config', 'UA-180557623-1');
     </script>
 
-	<script src="https://maps.googleapis.com/maps/api/js?key=<%=ENV['GOOGLE_MAP']%>&callback=initMap" async defer>
-		//map 表示
+	<script src="https://maps.googleapis.com/maps/api/js?key=<%=ENV['GOOGLE_MAP']%>&callback=initMap" async defer></script>
+	<script>
+				//map 表示
 		let map
 		let geocoder
 		const display = document.getElementById('display')
