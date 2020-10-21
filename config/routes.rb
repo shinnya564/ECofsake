@@ -54,6 +54,10 @@ Rails.application.routes.draw do
     end
   end
 
+  devise_scope :end_user do
+    post 'end_users/guest_sign_in', to: 'endusers/sessions#new_guest'
+  end
+
   namespace :admins do
     resources :admins, only: [:index, :show, :edit, :update]
     resources :orders, only: [:index]
