@@ -31,6 +31,13 @@ class EndUsersController < ApplicationController
 
   def withdrawal_update
     @end_user = EndUser.find(params[:end_user_id])
+    if @end_user.email == "guest@example.com"
+      @end_user.email =  "guest@example.com" + @end_user.id.to_s
+      @end_user.delete_status = true
+      if @end_user.save
+        redirect_to destroy_end_user_session_path and return
+      end
+    end
     @end_user.delete_status = true
     @end_user.save
     redirect_to destroy_end_user_session_path
