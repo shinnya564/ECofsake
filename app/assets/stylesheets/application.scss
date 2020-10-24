@@ -17,7 +17,11 @@
 /*bootstrap導入*/
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+/*googlefont*/
 @import url('https://fonts.googleapis.com/css?family=M+PLUS+Rounded+1c');
+
+
 
 body,li{
   font-family: 'M PLUS Rounded 1c', sans-serif;
@@ -269,4 +273,7 @@ footer{
     margin-top: 20px;
   }
 
+  .mymenu li {
+      margin-left: 60px;
+  }
  }
