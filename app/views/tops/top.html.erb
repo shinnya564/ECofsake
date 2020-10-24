@@ -3,7 +3,7 @@
 
 	<div class="container">
 		<div class="col-xs-12">
-			<h2 calss="test">Top</h2><hr>
+			<h2 calss="test">サイトについて</h2><hr>
 			<p>
 				お酒好きな人がお酒の知識を披露できるPF用のサイトです。<br>
 				昨今、対面型の店舗経営が難しい印象を持ったため、ネット通販が簡単に始められたらいいなと思い、
@@ -23,39 +23,7 @@
 				mail:test@test<br>
 				password:tester<br>
 				※エラーが出た場合、下部「お問い合わせ」よりご連絡ください。できうる限り対応します。<br>
+				※ゲストログインもありますので、よかったらご活用ください。
 			</p>
-			<br>
-			<h2>所在地</h2><hr>
-			<div id="address"></div>
-			<div id='map'></div>
 		</div>
 	</div>
-
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-180557623-1"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'UA-180557623-1');
-    </script>
-
-	<script src="https://maps.googleapis.com/maps/api/js?key=<%=ENV['GOOGLE_MAP']%>&callback=initMap" async defer></script>
-	<script>
-				//map 表示
-		let map
-		let geocoder
-		const display = document.getElementById('display')
-
-		function initMap(){
-			geocoder = new google.maps.Geocoder()
-
-			map = new google.maps.Map(document.getElementById('map'), {
-				center: {lat: 35.6646706, lng: 139.7377352},zoom: 18,
-			});
-
-			marker = new google.maps.Marker({
-				position:  {lat: 35.6646706, lng: 139.7377352},
-				map: map
-			});
-		}
-	</script>
