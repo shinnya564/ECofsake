@@ -1,47 +1,47 @@
 
-<div class="col-xs-12">
+<div class="col-xs-12" style="margin-bottom: 20px;">
 	<h2 class="page-header">新規商品登録画面</h2>
     <%= form_for @product,url:admins_products_path do |f| %>
-		<div class="col-xs-12">
+		<div class="col-xs-12 padding_none">
 			<%= attachment_image_tag(@product, :image, size: "300x300", fallback: "no_image.jpg", id:"img1")%>
 			<br><br>
 			<%= f.attachment_field :image, id:"myfile" %><br>
 		</div>
 
-		<div class="col-xs-12">
-			<div class="col-xs-4">
+		<div class="col-xs-12 padding_none">
+			<div class="col-xs-4 padding_none">
 	            <%= f.label :name, '商品名'%>
 			</div>
 			<div class="col-xs-8 padding_none">
 	            <%= f.text_field :name, class:"form-control" %><br><br>
 	    	</div>
 	    </div>
-		<div class="col-xs-12">
-			<div class="col-xs-4">
+		<div class="col-xs-12 padding_none">
+			<div class="col-xs-4 padding_none">
 		        <%= f.label :introduction, '商品説明' %>
 			</div>
 			<div class="col-xs-8 padding_none">
 		        <%= f.text_area :introduction, class:"form-control input-lg" %><br><br>
 	   	    </div>
 	    </div>
-		<div class="col-xs-12">
-			<div class="col-xs-4">
+		<div class="col-xs-12 padding_none">
+			<div class="col-xs-4 padding_none">
 		        <%= f.label :type_id, 'ジャンル' %><br>
 			</div>
 			<div class="col-xs-8 padding_none">
 		        <%= f.collection_select :type_id, Type.all, :id, :name, class:"form-control" %><br><br>
 		    </div>
 	    </div>
-		<div class="col-xs-12">
-			<div class="col-xs-4">
+		<div class="col-xs-12 padding_none">
+			<div class="col-xs-4 padding_none">
 		        <%= f.label :price_excluding%>
 			</div>
 			<div class="col-xs-8 padding_none">
 		        <%= f.text_field :price_excluding, class:"form-control" %><br><br>
 		    </div>
 	    </div>
-		<div class="col-xs-12">
-			<div class="col-xs-4">
+		<div class="col-xs-12 padding_none">
+			<div class="col-xs-4 padding_none">
 		        <%= f.label :out_of_stock, '販売ステータス'%><br>
 			</div>
 			<div class="col-xs-8 padding_none">
@@ -49,7 +49,7 @@
 		    </div>
 	    </div>
 
-	    <div class="col-xs-12">
+	    <div class="col-xs-12 padding_none">
 	        <%= f.submit "新規登録", class:"btn btn-primary"%>
 	    </div>
     <% end %>
