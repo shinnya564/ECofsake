@@ -18,7 +18,7 @@ class Admins::OrdersController < ApplicationController
     @items = @order.order_items
     @total_price = 0
     @items.each do |item|
-    	@total_price += item.price * item.quantity
+    	@total_price += (item.price * @TAX).ceil * item.quantity
     end
   end
 
@@ -30,11 +30,12 @@ class Admins::OrdersController < ApplicationController
 
   def earnings
     @earning_total = 0
-    @orders = Order.all
-
+    @collected_total = 0
+    orders = Order.all
+    collecteds = Order.where(status_flg: 2)
     @TAX = ENV['TAX'].to_f
 
-    @orders.each do |order|
+    orders.each do |order|
       total_price = 0
       items = order.order_items
       items.each do |item|
@@ -42,6 +43,16 @@ class Admins::OrdersController < ApplicationController
         @earning_total += total_price
       end
     end
+
+    collecteds.each do |order|
+      total_price = 0
+      items = order.order_items
+      items.each do |item|
+        total_price += item.price * item.quantity
+        @collected_total += total_price
+      end
+    end
+
   end
 
   private

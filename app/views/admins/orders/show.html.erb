@@ -65,10 +65,10 @@
 	            <tr>
 	                <td>
 	                	<%= item.name %><br>
-	                	¥ <%= item.price.to_s(:delimited) %>
+	                	¥ <%= ((item.price * @TAX).ceil).to_s(:delimited) %>
 	                </td>
 	                <td style="padding: 0px;padding-top: 20px;"><%= item.quantity %></td>
-	                <td style="padding: 0px;padding-top: 20px;">¥ <%= (item.price*item.quantity).to_s(:delimited) %></td>
+	                <td style="padding: 0px;padding-top: 20px;">¥ <%= (((item.price * @TAX).ceil * item.quantity)).to_s(:delimited) %></td>
 	                <td style="padding: 0px;padding-top: 20px;"><%= item.production_status %></td>
 	                	<%= form_for [@order,item], url:admins_end_user_order_order_item_path(@order.end_user_id,@order.id,item.id) do |f| %>
 	                        <th style="padding: 0px;padding-top: 20px;"><%= f.select :production_status, OrderItem.production_statuses.keys.to_a %></th>
