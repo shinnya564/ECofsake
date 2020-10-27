@@ -1,5 +1,14 @@
 
   	<div class="col-xs-12">
    		<h2>売上</h2><hr>
-		総額¥<%= @earning_total.to_s(:delimited) %>
+	  	<div class="col-xs-4">
+   			<h3>総額</h3>
+   			<h3>売掛金</h3>
+   			<h3>回収済み金額</h3>
+	   	</div>
+	  	<div class="col-xs-8">
+			<h3>¥<%= @earning_total.to_s(:delimited) %></h3>
+			<h3>¥<%= (@earning_total - @collected_total).to_s(:delimited) %></h3>
+			<h3>¥<%= (@collected_total).to_s(:delimited) %></h3>
+	  	</div>
 	</div>
