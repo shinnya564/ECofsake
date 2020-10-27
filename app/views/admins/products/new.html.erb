@@ -3,7 +3,7 @@
 	<h2 class="page-header">新規商品登録画面</h2>
     <%= form_for @product,url:admins_products_path do |f| %>
 		<div class="col-xs-12 padding_none">
-			<%= attachment_image_tag(@product, :image, size: "300x300", fallback: "no_image.jpg", id:"img1")%>
+			<%= attachment_image_tag(@product, :image, size: "300x250", fallback: "no_image.jpg", id:"img1")%>
 			<br><br>
 			<%= f.attachment_field :image, id:"myfile" %><br>
 		</div>
