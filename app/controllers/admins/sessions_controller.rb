@@ -21,6 +21,14 @@ class Admins::SessionsController < Devise::SessionsController
       redirect_to root_path
    end
 
+
+  def new_guest
+    user = Admin.guest
+    sign_in user
+    redirect_to admins_orders_path, notice: 'ゲストユーザーとしてログインしました。'
+  end
+
+
   # protected
 
   # If you have extra params to permit, append them to the sanitizer.

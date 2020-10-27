@@ -22,7 +22,8 @@
       <div class="col-xs-3">
       </div>
       <div class="col-xs-9 field">
-        <%= f.submit "ログイン",class: "btn btn-primary"%>
+        <%= f.submit "ログイン",class: "btn btn-primary"%><br><br><br>
+        <%= link_to(" ゲストログイン", admins_guest_sign_in_path, method: :post, class: "btn btn-primary glyphicon glyphicon-log-in", data: {"turbolinks" => false}) %>
       </div>
     <% end %>
   </div>
@@ -31,3 +32,4 @@
       <%= render "admins/shared/links" %>
     </div>
 </div>
+

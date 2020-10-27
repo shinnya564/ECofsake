@@ -71,5 +71,9 @@ Rails.application.routes.draw do
     resources :types, only:[:index, :edit, :update, :create]
   end
 
+  devise_scope :admin do
+    post 'admins/guest_sign_in', to: 'admins/sessions#new_guest'
+  end
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
