@@ -1,13 +1,13 @@
-class Address < ApplicationRecord
+# frozen_string_literal: true
 
+class Address < ApplicationRecord
   belongs_to :end_user
 
   validates :address, presence: true
-  validates :postal_code, presence: true,numericality: true
+  validates :postal_code, presence: true, numericality: true
   validates :name, presence: true
 
   def full_address
-    self.postal_code+ "　" + self.address+ "　" + self.name
+    postal_code + '　' + address + '　' + name
   end
-
 end

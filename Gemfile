@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
@@ -38,13 +40,13 @@ gem 'bootsnap', '>= 1.1.0', require: false
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'byebug', platforms: %i[mri mingw x64_mingw]
 end
 
 group :development do
   # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
-  gem 'web-console', '>= 3.3.0'
   gem 'listen', '>= 3.0.5', '< 3.2'
+  gem 'web-console', '>= 3.3.0'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
@@ -59,28 +61,25 @@ group :test do
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 
 # devise
 gem 'devise'
 
 # 画像用のgem
-gem "refile", require: "refile/rails", github: 'manfe/refile'
-gem "refile-s3"
-gem "refile-mini_magick"
+gem 'refile', require: 'refile/rails', github: 'manfe/refile'
+gem 'refile-mini_magick'
+gem 'refile-s3'
 
-#bootstrap
+# bootstrap
 gem 'bootstrap-sass', '~> 3.4.1'
 gem 'jquery-rails'
 
 # ページネイト
-gem 'kaminari','~>1.2.1'
+gem 'kaminari', '~>1.2.1'
 
 # pry-byebug
 gem 'pry-byebug'
-
-# Rubocop-airbnb
-gem 'rubocop-airbnb'
 
 # dotenv-rails 環境変数
 gem 'dotenv-rails'
@@ -93,11 +92,16 @@ group :production do
   gem 'mysql2'
 end
 
-gem 'rubocop-faker';
+group :development do
+  gem 'rubocop', require: false
+  gem 'rubocop-performance', require: false
+  gem 'rubocop-rails', require: false
+  gem 'rubocop-rspec'
+end
 
 group :development, :test do
-  gem 'rspec-rails'
   gem 'capybara', '>= 2.15'
-  gem "factory_bot_rails"
+  gem 'factory_bot_rails'
   gem 'faker'
+  gem 'rspec-rails'
 end

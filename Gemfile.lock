@@ -266,13 +266,6 @@ GEM
       rainbow (>= 2.2.2, < 4.0)
       ruby-progressbar (~> 1.7)
       unicode-display_width (>= 1.4.0, < 1.7)
-    rubocop-airbnb (3.0.2)
-      rubocop (~> 0.76.0)
-      rubocop-performance (~> 1.5.0)
-      rubocop-rails (~> 2.3.2)
-      rubocop-rspec (~> 1.30.0)
-    rubocop-faker (1.0.0)
-      rubocop (>= 0.74)
     rubocop-performance (1.5.2)
       rubocop (>= 0.71.0)
     rubocop-rails (2.3.2)
@@ -371,8 +364,10 @@ DEPENDENCIES
   refile-mini_magick
   refile-s3
   rspec-rails
-  rubocop-airbnb
-  rubocop-faker
+  rubocop
+  rubocop-performance
+  rubocop-rails
+  rubocop-rspec
   sass-rails (~> 5.0)
   selenium-webdriver
   spring

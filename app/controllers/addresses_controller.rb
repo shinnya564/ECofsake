@@ -1,5 +1,6 @@
-class AddressesController < ApplicationController
+# frozen_string_literal: true
 
+class AddressesController < ApplicationController
   before_action :authenticate_end_user!
 
   def index
@@ -13,12 +14,12 @@ class AddressesController < ApplicationController
   end
 
   def create
-  	@address = Address.new(address_params) #addressモデルのテーブルを使用しているのでaddressコントローラで保存
+    @address = Address.new(address_params) # addressモデルのテーブルを使用しているのでaddressコントローラで保存
     @address.end_user_id = current_end_user.id
-    if @address.save #入力されたデータをdbに保存する。
-      redirect_to request.referer, notice: "配送先を追加しました"#保存された場合の移動先を指定。
+    if @address.save # 入力されたデータをdbに保存する。
+      redirect_to request.referer, notice: '配送先を追加しました' # 保存された場合の移動先を指定。
     else
-      redirect_to request.referer, notice: "空白があります"
+      redirect_to request.referer, notice: '空白があります'
     end
   end
 
@@ -35,7 +36,7 @@ class AddressesController < ApplicationController
     if @address.update(address_params)
       redirect_to end_user_addresses_path(current_end_user)
     else
-      redirect_to action: :index, notice: "変更しました"
+      redirect_to action: :index, notice: '変更しました'
     end
   end
 
@@ -48,7 +49,6 @@ class AddressesController < ApplicationController
   private
 
   def address_params
-    params.require(:address).permit(:postal_code, :address ,:name)
+    params.require(:address).permit(:postal_code, :address, :name)
   end
-
 end

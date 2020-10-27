@@ -1,9 +1,11 @@
+# frozen_string_literal: true
+
 class CreateCards < ActiveRecord::Migration[5.2]
   def change
     create_table :cards do |t|
-      t.integer :end_user_id, 	null: false
-      t.string 	:customer_id, 	null: false
-      t.string 	:card_id,		null: false
+      t.integer :end_user_id, null: false
+      t.string   :customer_id, null: false
+      t.string   :card_id, null: false
 
       t.timestamps
     end

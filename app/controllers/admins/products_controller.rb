@@ -1,8 +1,9 @@
+# frozen_string_literal: true
+
 class Admins::ProductsController < ApplicationController
   before_action :authenticate_admin!
 
   layout 'admins'
-
 
   def new
     @product = Product.new

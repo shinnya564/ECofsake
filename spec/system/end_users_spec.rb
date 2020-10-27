@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 describe 'ユーザー認証のテスト' do
@@ -17,7 +19,7 @@ describe 'ユーザー認証のテスト' do
         fill_in 'end_user[email]', with: Faker::Internet.email
         fill_in 'end_user[password]', with: 'password'
         fill_in 'end_user[password_confirmation]', with: 'password'
-        click_button "新規登録"
+        click_button '新規登録'
 
         expect(page).to have_content 'Welcome!'
       end
@@ -32,7 +34,7 @@ describe 'ユーザー認証のテスト' do
         fill_in 'end_user[tel]', with: ''
         fill_in 'end_user[password]', with: ''
         fill_in 'end_user[password_confirmation]', with: ''
-        click_button "新規登録"
+        click_button '新規登録'
 
         expect(page).to have_content 'error'
       end
@@ -112,7 +114,7 @@ describe 'ユーザーのテスト' do
         fill_in 'end_user[tel]', with: ''
         click_button '保存する'
         expect(page).to have_content '更新に失敗しました.'
-				#もう少し詳細にエラー文出したい
+        # もう少し詳細にエラー文出したい
         expect(current_path).to eq('/end_users/' + end_user.id.to_s + '/edit')
       end
     end

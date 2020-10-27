@@ -1,8 +1,9 @@
+# frozen_string_literal: true
 
 require 'csv'
 
 CSV.generate do |csv|
-  csv_column_names = %w(Firstname Lastname Email)
+  csv_column_names = %w[Firstname Lastname Email]
   csv << csv_column_names
   @end_users.each do |user|
     csv_column_values = [

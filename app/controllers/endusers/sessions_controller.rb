@@ -14,12 +14,12 @@ class Endusers::SessionsController < Devise::SessionsController
   # end
 
   # DELETE /resource/sign_out
-   def destroy
-      signed_out = (Devise.sign_out_all_scopes ? sign_out : sign_out(resource_name))
-      devise_mapping.name
-      set_flash_message! :notice, :signed_out if signed_out
-      redirect_to root_path
-   end
+  def destroy
+    signed_out = (Devise.sign_out_all_scopes ? sign_out : sign_out(resource_name))
+    devise_mapping.name
+    set_flash_message! :notice, :signed_out if signed_out
+    redirect_to root_path
+  end
 
   def new_guest
     user = EndUser.guest

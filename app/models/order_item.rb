@@ -1,6 +1,7 @@
+# frozen_string_literal: true
+
 class OrderItem < ApplicationRecord
+  belongs_to :order
 
-	belongs_to :order
-
-	enum production_status: { "受注": 0, "発送済": 1, "着手不可": 3}
+  enum production_status: { "受注": 0, "発送済": 1, "着手不可": 3 }
 end

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe 'Addressモデルのテスト', type: :model do
@@ -8,19 +10,19 @@ RSpec.describe 'Addressモデルのテスト', type: :model do
     context 'postal_codeカラム' do
       it '空欄でないこと' do
         address.postal_code = ''
-        expect(address.valid?).to eq false;
+        expect(address.valid?).to eq false
       end
     end
     context 'addressカラム' do
       it '空欄でないこと' do
         address.address = ''
-        expect(address.valid?).to eq false;
+        expect(address.valid?).to eq false
       end
     end
     context 'nameカラム' do
       it '空欄でないこと' do
         address.name = ''
-        expect(address.valid?).to eq false;
+        expect(address.valid?).to eq false
       end
     end
   end

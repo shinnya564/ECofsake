@@ -1,10 +1,12 @@
+# frozen_string_literal: true
+
 class CreateInquiries < ActiveRecord::Migration[5.2]
   def change
     create_table :inquiries do |t|
-		t.string	:name			,null: false
-		t.string	:email			,null: false
-		t.text		:message
-    	t.timestamps
+      t.string :name, null: false
+      t.string :email, null: false
+      t.text :message
+      t.timestamps
     end
   end
 end

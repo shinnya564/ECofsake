@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 FactoryBot.define do
   factory :bulletin_board do
     title { Faker::Internet.username(specifier: 30) }
