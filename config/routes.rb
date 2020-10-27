@@ -1,5 +1,6 @@
-Rails.application.routes.draw do
+# frozen_string_literal: true
 
+Rails.application.routes.draw do
   namespace :secret do
     get 'producer/show'
   end
@@ -9,13 +10,13 @@ Rails.application.routes.draw do
     get 'admins/edit'
   end
   devise_for :end_users, controllers: {
-    sessions:      'endusers/sessions',
-    passwords:     'endusers/passwords',
+    sessions: 'endusers/sessions',
+    passwords: 'endusers/passwords',
     registrations: 'endusers/registrations'
   }
   devise_for :admins, controllers: {
-    sessions:      'admins/sessions',
-    passwords:     'admins/passwords',
+    sessions: 'admins/sessions',
+    passwords: 'admins/passwords',
     registrations: 'admins/registrations'
   }
 
@@ -28,28 +29,28 @@ Rails.application.routes.draw do
   get 'inquiries/confirm' => 'inquiries#confirm'
   get 'inquiries/thanks' => 'inquiries#thanks'
 
-  resources :bulletin_boards, only: [:index, :show, :create] do
+  resources :bulletin_boards, only: %i[index show create] do
     resources :bulletin_board_comments, only: [:create]
   end
 
-  resources :products, only: [:index, :show] do
+  resources :products, only: %i[index show] do
     resources :product_comments, only: [:create]
-    resource :favorites, only: [:create, :destroy]
+    resource :favorites, only: %i[create destroy]
   end
 
-  resources :end_users, only: [:show,:edit,:update] do
+  resources :end_users, only: %i[show edit update] do
     get '/withdrawal' => 'end_users#withdrawal'
     patch '/withdrawal' => 'end_users#withdrawal_update'
     put '/withdrawal' => 'end_users#withdrawal_update'
-    resources :addresses, only: [:index, :edit, :create, :update, :destroy]
-    resources :cards, only: [:new, :index, :create, :destroy]
+    resources :addresses, only: %i[index edit create update destroy]
+    resources :cards, only: %i[new index create destroy]
     get '/card_check' => 'cards#card_check'
-    resources :carts, only: [:index, :create, :destroy, :update]
+    resources :carts, only: %i[index create destroy update]
     delete '/carts' => 'carts#all_destroy'
     get '/address_check' => 'orders#address_check'
     get '/order_check' => 'orders#order_check'
     get '/thanks' => 'orders#thanks'
-    resources :orders, only: [:index, :show, :create] do
+    resources :orders, only: %i[index show create] do
       resources :order_items, only: [:create]
     end
   end
@@ -59,18 +60,18 @@ Rails.application.routes.draw do
   end
 
   namespace :admins do
-    resources :admins, only: [:index, :show, :edit, :update]
+    resources :admins, only: %i[index show edit update]
     resources :orders, only: [:index]
     get '/earnings' => 'orders#earnings'
-    resources :end_users, only: [:index, :show, :edit, :update] do
-      resources :orders, only: [:index, :show, :update] do
+    resources :end_users, only: %i[index show edit update] do
+      resources :orders, only: %i[index show update] do
         resources :order_items, only: [:update]
         patch '/order_items' => 'order_items#all_update'
         put '/order_items' => 'order_items#all_update'
       end
     end
-    resources :products, only:[:index, :show, :create, :edit, :update, :new]
-    resources :types, only:[:index, :edit, :update, :create]
+    resources :products, only: %i[index show create edit update new]
+    resources :types, only: %i[index edit update create]
   end
 
   devise_scope :admin do

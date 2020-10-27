@@ -1,5 +1,6 @@
-class Admins::AdminsController < ApplicationController
+# frozen_string_literal: true
 
+class Admins::AdminsController < ApplicationController
   before_action :authenticate_admin!
 
   layout 'admins'
@@ -16,10 +17,7 @@ class Admins::AdminsController < ApplicationController
 
   def edit
     @admin = Admin.find(params[:id])
-    if @admin.id == 0
-    	redirect_to admins_admins_path
-    else
-    end
+    redirect_to admins_admins_path if @admin.id == 0
   end
 
   def update
@@ -33,5 +31,4 @@ class Admins::AdminsController < ApplicationController
   def admin_params
     params.require(:admin).permit(:email)
   end
-
 end

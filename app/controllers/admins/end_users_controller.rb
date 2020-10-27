@@ -1,5 +1,6 @@
-class Admins::EndUsersController < ApplicationController
+# frozen_string_literal: true
 
+class Admins::EndUsersController < ApplicationController
   before_action :authenticate_admin!
 
   layout 'admins'
@@ -15,8 +16,8 @@ class Admins::EndUsersController < ApplicationController
 
   def edit
     @end_user = EndUser.find(params[:id])
-    if @end_user.email == "guest@example.com"
-        redirect_to admins_end_user_path(@end_user), notice:'ゲストユーザーの会員情報は管理者では変更できません' and return
+    if @end_user.email == 'guest@example.com'
+      redirect_to(admins_end_user_path(@end_user), notice: 'ゲストユーザーの会員情報は管理者では変更できません') && return
     end
   end
 

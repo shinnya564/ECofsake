@@ -1,7 +1,7 @@
-class BulletinBoardComment < ApplicationRecord
+# frozen_string_literal: true
 
-	belongs_to :bulletin_board
+class BulletinBoardComment < ApplicationRecord
+  belongs_to :bulletin_board
 
   validates :comment, presence: true
-
 end

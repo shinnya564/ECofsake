@@ -4,8 +4,8 @@ class DeviseCreateEndUsers < ActiveRecord::Migration[5.2]
   def change
     create_table :end_users do |t|
       ## Database authenticatable
-      t.string :email,              null: false, default: ""
-      t.string :encrypted_password, null: false, default: ""
+      t.string :email,              null: false, default: ''
+      t.string :encrypted_password, null: false, default: ''
 
       ## Recoverable
       t.string   :reset_password_token
@@ -32,14 +32,14 @@ class DeviseCreateEndUsers < ActiveRecord::Migration[5.2]
       # t.string   :unlock_token # Only if unlock strategy is :email or :both
       # t.datetime :locked_at
 
-      t.string  :family_name,null: false, default: ""
-      t.string  :first_name,null: false, default: ""
-      t.string  :kana_family_name,null: false, default: ""
-      t.string  :kana_first_name,null: false, default: ""
-      t.string  :postal_code,null: false, default: ""
-      t.text    :address,null: false
-      t.string  :tel,null: false, default: ""
-      t.boolean :delete_status,null: false, default: false
+      t.string  :family_name, null: false, default: ''
+      t.string  :first_name, null: false, default: ''
+      t.string  :kana_family_name, null: false, default: ''
+      t.string  :kana_first_name, null: false, default: ''
+      t.string  :postal_code, null: false, default: ''
+      t.text    :address, null: false
+      t.string  :tel, null: false, default: ''
+      t.boolean :delete_status, null: false, default: false
 
       t.timestamps null: false
     end

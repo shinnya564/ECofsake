@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Admins::OrdersController < ApplicationController
   before_action :authenticate_admin!
 
@@ -5,20 +7,20 @@ class Admins::OrdersController < ApplicationController
 
   def index
     case params[:order_sort]
-    when "0"
-      @orders = Order.where(end_user_id: params[:end_user_id]).order(created_at: "DESC")
+    when '0'
+      @orders = Order.where(end_user_id: params[:end_user_id]).order(created_at: 'DESC')
     else
-      @orders = Order.all.order(created_at: "DESC")
+      @orders = Order.all.order(created_at: 'DESC')
     end
   end
 
   def show
-  	@TAX = ENV['TAX'].to_f
+    @TAX = ENV['TAX'].to_f
     @order = Order.find(params[:id])
     @items = @order.order_items
     @total_price = 0
     @items.each do |item|
-    	@total_price += (item.price * @TAX).ceil * item.quantity
+      @total_price += (item.price * @TAX).ceil * item.quantity
     end
   end
 
@@ -52,7 +54,6 @@ class Admins::OrdersController < ApplicationController
         @collected_total += total_price
       end
     end
-
   end
 
   private

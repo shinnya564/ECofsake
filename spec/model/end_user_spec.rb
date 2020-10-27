@@ -1,8 +1,8 @@
+# frozen_string_literal: true
 
 require 'rails_helper'
 
 RSpec.describe 'EndUserモデルのテスト', type: :model do
-
   before do
     @end_user = build(:end_user)
   end
@@ -51,5 +51,4 @@ RSpec.describe 'EndUserモデルのテスト', type: :model do
       end
     end
   end
-
 end

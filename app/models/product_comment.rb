@@ -1,7 +1,7 @@
-class ProductComment < ApplicationRecord
+# frozen_string_literal: true
 
-	belongs_to :product
+class ProductComment < ApplicationRecord
+  belongs_to :product
 
   validates :comment, presence: true
-
 end
