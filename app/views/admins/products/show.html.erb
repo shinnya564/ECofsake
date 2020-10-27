@@ -5,7 +5,7 @@
 		<h3><%= @product.name %></h3>
 	</div>
 
-	<%= attachment_image_tag @product, :image, size: "300x300", fallback: "no_image.jpg" %>
+	<%= attachment_image_tag @product, :image, size: "300x250", fallback: "no_image.jpg" %>
 	<h3>商品説明</h3>
 	<p><%= @product.introduction %></p>
 

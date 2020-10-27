@@ -8,7 +8,7 @@
                             <% if @loop == 2 %>
                                     <td>
                                         <%= link_to((product), data: {"turbolinks" => false}) do %>
-                                            <%= attachment_image_tag product, :image, fallback: "no_image.jpg",size: "90x90" %><br>
+                                            <%= attachment_image_tag product, :image, fallback: "no_image.jpg",size: "100x90" %><br>
                                         <% end %>
                                         <h5><%= link_to product.name, product_path(product.id), data: {"turbolinks" => false} %></h5>
                                         <h5>¥<%= ((product.price_excluding * @TAX).ceil).to_s(:delimited) %>(税込)</h5>
@@ -20,7 +20,7 @@
                             <td>
                                 <%= link_to((product), data: {"turbolinks" => false}) do %>
 
-                                    <%= attachment_image_tag product, :image, fallback: "no_image.jpg",size: "90x90" %><br>
+                                    <%= attachment_image_tag product, :image, fallback: "no_image.jpg",size: "100x90" %><br>
 
                                 <% end %>
                                 <h5><%= link_to product.name, product_path(product.id), data: {"turbolinks" => false} %></h5>
