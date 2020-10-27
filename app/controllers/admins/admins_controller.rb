@@ -16,7 +16,7 @@ class Admins::AdminsController < ApplicationController
 
   def edit
     @admin = Admin.find(params[:id])
-    if @admin.id == 1
+    if @admin.id == 0
     	redirect_to admins_admins_path
     else
     end
