@@ -65,6 +65,8 @@ Rails.application.routes.draw do
     resources :end_users, only: [:index, :show, :edit, :update] do
       resources :orders, only: [:index, :show, :update] do
         resources :order_items, only: [:update]
+        patch '/order_items' => 'order_items#all_update'
+        put '/order_items' => 'order_items#all_update'
       end
     end
     resources :products, only:[:index, :show, :create, :edit, :update, :new]

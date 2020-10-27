@@ -71,12 +71,22 @@
 	                <td style="padding: 0px;padding-top: 20px;">¥ <%= (((item.price * @TAX).ceil * item.quantity)).to_s(:delimited) %></td>
 	                <td style="padding: 0px;padding-top: 20px;"><%= item.production_status %></td>
 	                	<%= form_for [@order,item], url:admins_end_user_order_order_item_path(@order.end_user_id,@order.id,item.id) do |f| %>
-	                        <th style="padding: 0px;padding-top: 20px;"><%= f.select :production_status, OrderItem.production_statuses.keys.to_a %></th>
-	                        <th style="padding: 0px;padding-top: 15px;"><%= f.submit "更新", class:"btn btn-success" %></th>
+	                        <th style="padding: 0px;padding-top: 10px;"><%= f.select :production_status, OrderItem.production_statuses.keys.to_a %>
+	                        	<%= f.submit "更新", class:"btn btn-success" %>
+	                        </th>
 	                    <% end %>
 	                </th>
 	            </tr>
 	            <% end %>
+	            <tr>
+	            	<td colspan="3">
+					</td>
+					<td>
+						<%= form_for [@order], url:admins_end_user_order_order_items_path(@order.end_user_id,@order.id) do |f| %>
+							<%= f.submit "全て発送済み", class:"btn btn-success" %>
+						<% end %>
+					</td>
+				</tr>
 	        </tbody>
 	    </table>
 	</div>
