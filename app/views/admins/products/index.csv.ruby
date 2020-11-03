@@ -3,7 +3,7 @@
 require 'csv'
 
 CSV.generate do |csv|
-  csv_column_names = %w[Type_id Name Email Introduction Price_excluding
+  csv_column_names = %w[Type_id Name Introduction Price_excluding
 Image_id Out_of_stock]
   csv << csv_column_names
   @products.each do |product|
