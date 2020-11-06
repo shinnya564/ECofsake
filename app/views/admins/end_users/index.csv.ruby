@@ -3,7 +3,7 @@
 require 'csv'
 
 CSV.generate do |csv|
-  csv_column_names = %w[first_name last_name email kana_family_name kana_first_name postal_code address tel delete_status]
+  csv_column_names = %w[first_name last_name email kana_family_name kana_first_name postal_code address tel encrypted_password delete_status]
   csv << csv_column_names
   @end_users.each do |user|
     csv_column_values = [
@@ -15,6 +15,7 @@ CSV.generate do |csv|
       user.postal_code,
       user.address,
       user.tel.to_s,
+      user.encrypted_password,
       user.delete_status
     ]
     csv << csv_column_values
