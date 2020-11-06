@@ -35,9 +35,9 @@ require 'csv'
 
 CSV.foreach(*path) do |row|
   EndUser.create(
-    email: row[''],
+    email: row['email'],
     password: row[''],
-    family_name: row[''],
+    family_name: row['first_name'],
     first_name: row[''],
     kana_family_name: row[''],
     kana_first_name: row[''],

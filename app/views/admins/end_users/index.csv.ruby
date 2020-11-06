@@ -15,6 +15,7 @@ CSV.generate do |csv|
       user.postal_code,
       user.address,
       user.tel.to_s,
+      user.password,
       user.delete_status
     ]
     csv << csv_column_values
