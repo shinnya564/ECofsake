@@ -50,10 +50,11 @@
 	        <h4><%= @end_user.email %></h4>
 	    </div>
 	</div>
+
 	<div class="col-xs-12" style="margin-bottom: 20px;">
 		<h2>メニュー</h2><hr>
 		<ul class="nav navbar-nav mymenu">
-			<li><%= link_to "編集", edit_admins_end_user_path(@end_user.id), class:"btn btn-success", data: {"turbolinks" => false}%></li><br>
+			<li style="margin-bottom:20px;"><%= link_to "編集", edit_admins_end_user_path(@end_user.id), class:"btn btn-success", data: {"turbolinks" => false}%></li><br>
 			<li><%= link_to "注文一覧", admins_end_user_orders_path(@end_user.id, order_sort: 0), class:"btn btn-primary", data: {"turbolinks" => false} %></li>
 		</ul>
 	</div>
